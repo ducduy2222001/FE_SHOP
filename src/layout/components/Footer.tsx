@@ -6,7 +6,7 @@ import Logo from "../../common/components/Logo/Logo";
 const TITLES = {
   introduction: "Introduction",
   information: "Information of store",
-  customerPolicy: "Customer policy",
+  customerPolicy: "Customer service",
   socialMedia: "Social media",
 };
 
@@ -54,7 +54,7 @@ const SOCIALMEDIA = [
   { id: 3, social: "Instagram" },
 ];
 
-function Footer() {
+const Footer = () => {
   return (
     <footer className={`${styles.footer} ${styles.gridContainer}`}>
       <div
@@ -120,6 +120,6 @@ function Footer() {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

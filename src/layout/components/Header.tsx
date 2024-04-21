@@ -102,7 +102,7 @@ const Header = () => {
         </div>
 
         <div
-          className={`${styles.headerBody}  flex flex-direction-column flex-justify-center flex-align-center`}
+          className={`${styles.headerBody} flex flex-direction-column flex-justify-center flex-align-center`}
         >
           <div
             className="flex flex-direction-column flex-justify-center flex-align-center"
