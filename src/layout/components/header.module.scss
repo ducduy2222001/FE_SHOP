@@ -1,0 +1,70 @@
+@import "../../common/scss/common.scss";
+
+.headerBgImage {
+  height: 100vh;
+  background-image: url(../../assets/image/clothes.png);
+  background-color: $color-dark-gray;
+  background-blend-mode: multiply;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .gridContainer {
+    display: grid;
+    grid-template-columns: 520px 150px 520px;
+    justify-content: center;
+  }
+
+  .headerBg {
+    background-color: $color-dark-blue;
+  }
+
+  .header {
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 90px;
+    position: fixed;
+    overflow: hidden;
+    transition: 0.1s ease-in;
+
+    .headerContentFirst {
+      .menu {
+        height: 100%;
+        color: $color-white;
+        column-gap: 30px;
+        font-weight: 500;
+        font-size: 16px;
+        list-style-type: none;
+      }
+    }
+
+    .headerContentSecond {
+      width: 100%;
+      color: $color-white;
+    }
+
+    .headerContentThird {
+      column-gap: 5px;
+      .iconColor {
+        color: $color-white;
+      }
+      .iconSize {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .headerBody {
+    height: 100vh;
+    color: $color-white;
+
+    .btnRegisterNow {
+      font-size: 14px;
+      border-radius: unset;
+      padding: 30px 50px;
+    }
+  }
+}

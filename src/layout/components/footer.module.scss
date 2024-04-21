@@ -1,0 +1,28 @@
+@import "../../common/scss/common.scss";
+
+.footer {
+  background-color: $color-gray-white;
+  padding: 60px 0px;
+
+  .introduction {
+    padding: 0 25px;
+  }
+
+  .information,
+  .introduction,
+  .customerPolicy,
+  .socialMedia {
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  h3 {
+    font-family: "math";
+  }
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 400px 264px 264px 264px;
+  justify-content: center;
+}
