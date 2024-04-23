@@ -1,1 +1,30 @@
 @import "../../scss/common.scss";
+
+.card {
+  .imgCard {
+    position: relative;
+  }
+
+  .btnsCard {
+    position: absolute;
+    z-index: 1;
+    row-gap: 10px;
+    left: 220px;
+    top: 10px;
+    display: none;
+
+    .iConButton {
+      background-color: $color-gray-white;
+      color: $color-black;
+      opacity: 0.5;
+    }
+
+    .iConButton:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.card:hover .btnsCard {
+  display: inline-flex;
+}
