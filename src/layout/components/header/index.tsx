@@ -8,7 +8,7 @@ import {
 
 import "../../../assets/scss/common.scss";
 import styles from "./header.module.scss";
-import Logo from "../../../common/components/logo/Logo";
+import Logo from "../../../common/components/logo";
 
 const LIST_HOME = [
   {

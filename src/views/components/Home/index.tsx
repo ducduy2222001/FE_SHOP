@@ -1,9 +1,9 @@
 import React from "react";
-import { withLayout } from "../../../layout/Layout";
+import { withLayout } from "../../../layout";
 
 import styles from "./home.module.scss";
 import { Grid } from "@mui/material";
-import CardItem from "../../../common/components/card/CardItem";
+import CardItem from "../../../common/components/card";
 
 const Home = () => {
   return (
