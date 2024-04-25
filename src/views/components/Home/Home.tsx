@@ -2,8 +2,9 @@ import React from "react";
 import { withLayout } from "../../../layout/Layout";
 
 import styles from "./home.module.scss";
-import CardItem from "../../../common/components/Card/CardItem";
 import { Grid } from "@mui/material";
+import CardItem from "../../../common/components/card/CardItem";
+
 const Home = () => {
   return (
     <div className={`${styles.home}`}>

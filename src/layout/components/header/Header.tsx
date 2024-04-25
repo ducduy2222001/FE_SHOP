@@ -7,9 +7,9 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 
-import "../../common/scss/common.scss";
+import "../../../common/scss/common.scss";
 import styles from "./header.module.scss";
-import Logo from "../../common/components/Logo/Logo";
+import Logo from "../../../common/components/logo/Logo";
 
 const LIST_HOME = [
   {
