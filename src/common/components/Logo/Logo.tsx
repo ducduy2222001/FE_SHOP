@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./logo.module.scss";
-import "../../scss/common.scss";
+import "../../../assets/scss/common.scss";
 const NAME_BRANCH = {
   name1: "Luxury",
   name2: "Clothes",
