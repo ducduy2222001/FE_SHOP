@@ -8,8 +8,8 @@ import CardItem from "../../../common/components/card/CardItem";
 const Home = () => {
   return (
     <div className={`${styles.home}`}>
-      <div>Featured Products</div>
-      <div style={{ width: "1190px" }}>
+      <div className={`${styles.title}`}>Featured Products</div>
+      <div style={{ width: "1190px", paddingBottom: "70px" }}>
         <Grid
           container
           item
@@ -24,6 +24,7 @@ const Home = () => {
           <CardItem />
         </Grid>
       </div>
+      <div className={`${styles.containA}`}></div>
     </div>
   );
 };

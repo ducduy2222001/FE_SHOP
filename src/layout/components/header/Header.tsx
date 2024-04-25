@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { Button } from "antd";
-import { Badge, IconButton } from "@mui/material";
+import Headroom from "react-headroom";
+import { Badge, Button, IconButton } from "@mui/material";
 import {
   LocalMallOutlined,
   FavoriteBorderOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
 
-import "../../../common/scss/common.scss";
+import "../../../assets/scss/common.scss";
 import styles from "./header.module.scss";
 import Logo from "../../../common/components/logo/Logo";
 
@@ -31,82 +30,71 @@ const LIST_HOME = [
 ];
 
 const Header = () => {
-  const [color, setColor] = useState(false);
-
-  const changeColor = () => {
-    if (window.scrollY >= 90) {
-      setColor(true);
-    } else setColor(false);
-  };
-  window.addEventListener("scroll", changeColor);
-
   return (
     <>
-      <header className={`${styles.headerBgImage}`}>
-        <div
-          className={`${styles.header} ${color ? styles.headerBg : ""} ${
-            styles.gridContainer
-          }`}
-        >
-          <div className={`${styles.headerContentFirst}`}>
-            <ul className={`${styles.menu} flex flex-align-center`}>
-              {LIST_HOME.map((item) => {
-                return (
-                  <li key={item.id} style={{ cursor: "pointer" }}>
-                    {item.name}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          <div
-            className={`${styles.headerContentSecond} flex flex-align-center flex-direction-column flex-justify-center`}
-          >
-            <Logo color={true} />
-          </div>
-          <div
-            className={`${styles.headerContentThird} flex flex-align-center flex-justify-flex-end`}
-          >
-            <IconButton
-              aria-label="search"
-              className={`${styles.iconColor}`}
-              onClick={() => {
-                console.log("click search");
-              }}
+      <header className={`${styles.headerBgImage} flex flex-direction-column`}>
+        <Headroom>
+          <div className={`${styles.header} ${styles.gridContainer}`}>
+            <div className={`${styles.headerContentFirst}`}>
+              <ul className={`${styles.menu} flex flex-align-center`}>
+                {LIST_HOME.map((item) => {
+                  return (
+                    <li key={item.id} style={{ cursor: "pointer" }}>
+                      {item.name}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div
+              className={`${styles.headerContentSecond} flex flex-align-center flex-direction-column flex-justify-center`}
             >
-              <SearchOutlined className={`${styles.iconSize}`} />
-            </IconButton>
-            <IconButton
-              aria-label="heart"
-              className={`${styles.iconColor}`}
-              onClick={() => {
-                console.log("click heart");
-              }}
+              <Logo color={true} />
+            </div>
+            <div
+              className={`${styles.headerContentThird} flex flex-align-center flex-justify-flex-end`}
             >
-              <Badge badgeContent={4} color="secondary">
-                <FavoriteBorderOutlined className={`${styles.iconSize}`} />
-              </Badge>
-            </IconButton>
-            <IconButton
-              aria-label="cart"
-              className={`${styles.iconColor}`}
-              onClick={() => {
-                console.log("click cart");
-              }}
-            >
-              <Badge badgeContent={4} color="secondary">
-                <LocalMallOutlined className={`${styles.iconSize}`} />
-              </Badge>
-            </IconButton>
+              <IconButton
+                aria-label="search"
+                className={`${styles.iconColor}`}
+                onClick={() => {
+                  console.log("click search");
+                }}
+              >
+                <SearchOutlined className={`${styles.iconSize}`} />
+              </IconButton>
+              <IconButton
+                aria-label="heart"
+                className={`${styles.iconColor}`}
+                onClick={() => {
+                  console.log("click heart");
+                }}
+              >
+                <Badge badgeContent={4} color="secondary">
+                  <FavoriteBorderOutlined className={`${styles.iconSize}`} />
+                </Badge>
+              </IconButton>
+              <IconButton
+                aria-label="cart"
+                className={`${styles.iconColor}`}
+                onClick={() => {
+                  console.log("click cart");
+                }}
+              >
+                <Badge badgeContent={4} color="secondary">
+                  <LocalMallOutlined className={`${styles.iconSize}`} />
+                </Badge>
+              </IconButton>
+            </div>
           </div>
-        </div>
+        </Headroom>
 
         <div
           className={`${styles.headerBody} flex flex-direction-column flex-justify-center flex-align-center`}
         >
           <div
             className="flex flex-direction-column flex-justify-center flex-align-center"
-            style={{ rowGap: "30px", marginTop: "100px" }}
+            style={{ rowGap: "30px" }}
           >
             <span
               style={{
@@ -141,10 +129,7 @@ const Header = () => {
               chic comfort, classic denim, and soft essentials for your daily
               fashion journey
             </span>
-            <Button
-              ghost={true}
-              className={`${styles.btnRegisterNow} flex flex-align-center`}
-            >
+            <Button variant="outlined" className={`${styles.btnRegisterNow} `}>
               REGISTER NOW
             </Button>
           </div>
