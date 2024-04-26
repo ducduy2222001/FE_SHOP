@@ -6,7 +6,6 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 
-import "../../../assets/scss/common.scss";
 import styles from "./header.module.scss";
 import Logo from "../../../common/components/logo";
 
@@ -49,7 +48,7 @@ const Header = () => {
             <div
               className={`${styles.headerContentSecond} flex flex-align-center flex-direction-column flex-justify-center`}
             >
-              <Logo color={true} />
+              <Logo />
             </div>
             <div
               className={`${styles.headerContentThird} flex flex-align-center flex-justify-flex-end`}

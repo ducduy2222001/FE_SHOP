@@ -60,7 +60,7 @@ const Footer = () => {
       <div
         className={`${styles.introduction} flex flex-direction-column flex-align-flex-start`}
       >
-        <Logo color={false} />
+        <Logo />
         <h3 style={{ fontSize: "20px" }}>{TITLES.introduction}</h3>
         {INTRODUCTION.map((item) => {
           return (

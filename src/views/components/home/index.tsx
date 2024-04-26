@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import { withLayout } from "../../../layout";
 import CardItem from "../../../common/components/card";
 import shoes2 from "../../../assets/image/shoes2.png";
@@ -28,21 +28,29 @@ const Home = () => {
           <CardItem />
         </Grid>
       </div>
+      <div className={`${styles.containA}`}>sssss</div>
       <div
-        className={`${styles.containA} flex flex-direction-column flex-align-end flex-justify-center`}
+        className={`${styles.containB} flex flex-direction-column flex-align-end flex-justify-center`}
       >
-        <div className="flex flex-direction-column flex-align-center">
+        <div
+          className="flex flex-direction-column flex-align-center"
+          style={{ gap: "20px" }}
+        >
           <img
             src={shoes2}
             alt=""
             style={{
-              width: "500px",
+              width: "480px",
               height: "auto",
+              borderRadius: "10px",
             }}
           />
-          <span style={{ fontSize: "40px", color: "var($color-white)" }}>
+          <span className={`${styles.titleImg}`}>
             Explore Our Shoes Collection Now!
           </span>
+          <Button variant="outlined" className={`${styles.btnRegisterNow} `}>
+            REGISTER NOW
+          </Button>
         </div>
       </div>
     </div>
