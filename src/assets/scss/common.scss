@@ -12,6 +12,10 @@ $size-s: 14px;
 $size-m: 16px;
 $size-l: 18px;
 
+.widthScreen {
+  width: 1190px;
+}
+
 // flex
 .flex {
   display: flex;
@@ -43,7 +47,7 @@ $size-l: 18px;
   align-items: center;
 }
 
-.flex-align-end {
+.flex-align-flex-end {
   align-items: flex-end;
 }
 

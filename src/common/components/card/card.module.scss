@@ -3,14 +3,22 @@
 .card {
   .imgCard {
     position: relative;
+    z-index: -2;
   }
 
-  .btnsCard {
-    position: absolute;
-    z-index: 1;
-    row-gap: 10px;
-    left: 220px;
+  .btnCardSmall {
+    top: 5px;
+    right: 5px;
+  }
+
+  .btnCardBig {
     top: 10px;
+    right: 10px;
+  }
+
+  .btnCard {
+    position: absolute;
+    row-gap: 10px;
     display: none;
 
     .iConButton {
@@ -25,6 +33,6 @@
   }
 }
 
-.card:hover .btnsCard {
+.card:hover .btnCard {
   display: inline-flex;
 }
