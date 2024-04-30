@@ -177,6 +177,9 @@ const Home = () => {
   );
 };
 
+// Chỉ xuất một lần với HOC áp dụng
+export default withLayout(Home);
+
 const ListCard = (props: any) => {
   const { data, sale } = props;
   return (
@@ -215,12 +218,10 @@ const ListCard = (props: any) => {
             );
           })}
         </Grid>
-        <Grid item justifyContent="space-between" md={12}>
-          <Button variant="outlined" className={`${styles.btnSeeAll} `}>
-            SEE ALL
-          </Button>
-        </Grid>
       </Grid>
+      <Button variant="outlined" className={`${styles.btnSeeAll} `}>
+        SEE ALL
+      </Button>
     </div>
   );
 };
@@ -324,6 +325,3 @@ const ServiceOfShop = (props: any) => {
     </div>
   );
 };
-
-// Chỉ xuất một lần với HOC áp dụng
-export default withLayout(Home);
