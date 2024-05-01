@@ -13,6 +13,7 @@ import SwiperReview from "../../../common/components/swiperReview";
 import shoes2 from "../../../assets/image/shoes2.png";
 import clothes_model1 from "../../../assets/image/clothes_model1.png";
 import clothes_model2 from "../../../assets/image/clothes_model2.png";
+import bgHome from "../../../assets/image/home.png";
 
 import "../../../assets/scss/common.scss";
 import styles from "./home.module.scss";
@@ -177,8 +178,15 @@ const Home = () => {
   );
 };
 
+const headerProps = {
+  home: true,
+  title:
+    " Every day is a canvas waiting to be painted with the beauty of life!",
+  image: bgHome,
+};
+
 // Chỉ xuất một lần với HOC áp dụng
-export default withLayout(Home);
+export default withLayout(Home, headerProps);
 
 const ListCard = (props: any) => {
   const { data, sale } = props;

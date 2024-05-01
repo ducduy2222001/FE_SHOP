@@ -8,7 +8,6 @@ import {
 
 import styles from "./header.module.scss";
 import Logo from "../../../common/components/logo";
-
 const LIST_HOME = [
   {
     id: 1,
@@ -28,10 +27,16 @@ const LIST_HOME = [
   },
 ];
 
-const Header = () => {
+const Header = (props: any) => {
+  const { home, title, image } = props;
   return (
     <>
-      <header className={`${styles.headerBgImage} flex flex-direction-column`}>
+      <header
+        className={`${styles.headerBgImage} flex flex-direction-column`}
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+      >
         <Headroom>
           <div className={`${styles.header} ${styles.gridContainer}`}>
             <div className={`${styles.headerContentFirst}`}>
@@ -102,7 +107,7 @@ const Header = () => {
                 fontWeight: "500",
               }}
             >
-              UNLEASH CREATIVITY & INSPIRE INNOVATION
+              {home && "UNLEASH CREATIVITY & INSPIRE INNOVATION"}
             </span>
             <span
               style={{
@@ -113,8 +118,7 @@ const Header = () => {
                 fontWeight: "600",
               }}
             >
-              Every day is a canvas waiting to be painted with the beauty of
-              life!
+              {title}
             </span>
             <span
               style={{
@@ -124,13 +128,17 @@ const Header = () => {
                 fontWeight: "500",
               }}
             >
-              Experience effortless style with our Casual & Everyday collection:
-              chic comfort, classic denim, and soft essentials for your daily
-              fashion journey
+              {home &&
+                "Experience effortless style with our Casual & Everyday collection: chic comfort, classic denim, and soft essentials for your daily fashion journey"}{" "}
             </span>
-            <Button variant="outlined" className={`${styles.btnRegisterNow} `}>
-              REGISTER NOW
-            </Button>
+            {home && (
+              <Button
+                variant="outlined"
+                className={`${styles.btnRegisterNow} `}
+              >
+                REGISTER NOW
+              </Button>
+            )}
           </div>
         </div>
       </header>
