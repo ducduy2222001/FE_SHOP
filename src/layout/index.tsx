@@ -4,12 +4,13 @@ import Footer from "./components/footer/Footer";
 
 type LayoutProps = {
   children: ReactNode;
+  headerProps: object;
 };
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, headerProps }) => {
   return (
     <div className="layout">
-      <Header />
+      <Header {...headerProps} />
       <main>{children}</main>
       <Footer />
     </div>
@@ -17,9 +18,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 };
 
 // HOC để áp dụng Layout
-export const withLayout = (Component: ComponentType) => {
+export const withLayout = (Component: ComponentType, headerProps: object) => {
   return () => (
-    <Layout>
+    <Layout headerProps={headerProps}>
       <Component />
     </Layout>
   );
