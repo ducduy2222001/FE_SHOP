@@ -178,11 +178,58 @@ const Home = () => {
   );
 };
 
+const ContentHome = () => {
+  return (
+    <div
+      className={`${styles.contentHome} flex flex-direction-column flex-justify-center flex-align-center`}
+    >
+      <div
+        className="flex flex-direction-column flex-justify-center flex-align-center"
+        style={{ rowGap: "30px" }}
+      >
+        <span
+          style={{
+            fontFamily: "cursive",
+            fontSize: "14px",
+            fontWeight: "500",
+          }}
+        >
+          UNLEASH CREATIVITY & INSPIRE INNOVATION
+        </span>
+        <span
+          style={{
+            fontFamily: "serif",
+            fontSize: "60px",
+            fontStyle: "italic",
+            width: "650px",
+            fontWeight: "600",
+          }}
+        >
+          Every day is a canvas waiting to be painted with the beauty of life!
+        </span>
+        <span
+          style={{
+            fontFamily: "cursive",
+            fontSize: "14px",
+            width: "750px",
+            fontWeight: "500",
+          }}
+        >
+          Experience effortless style with our Casual & Everyday collection:
+          chic comfort, classic denim, and soft essentials for your daily
+          fashion journey
+        </span>
+        <Button variant="outlined" className={`${styles.btnRegisterNow} `}>
+          REGISTER NOW
+        </Button>
+      </div>
+    </div>
+  );
+};
+
 const headerProps = {
-  home: true,
-  title:
-    " Every day is a canvas waiting to be painted with the beauty of life!",
   image: bgHome,
+  element: <ContentHome />,
 };
 
 // Chỉ xuất một lần với HOC áp dụng

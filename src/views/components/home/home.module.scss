@@ -88,3 +88,23 @@
     z-index: 0;
   }
 }
+
+.contentHome {
+  height: 100vh;
+  color: $color-white;
+
+  .btnRegisterNow {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 20px 40px;
+    color: $color-white;
+    border-color: $color-white;
+    letter-spacing: 4px;
+    border-radius: unset;
+  }
+
+  .btnRegisterNow:hover {
+    color: $color-black;
+    background-color: $color-white;
+  }
+}

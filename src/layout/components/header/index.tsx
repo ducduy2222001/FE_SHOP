@@ -28,7 +28,7 @@ const LIST_HOME = [
 ];
 
 const Header = (props: any) => {
-  const { home, title, image } = props;
+  const { image, element } = props;
   return (
     <>
       <header
@@ -92,55 +92,7 @@ const Header = (props: any) => {
             </div>
           </div>
         </Headroom>
-
-        <div
-          className={`${styles.headerBody} flex flex-direction-column flex-justify-center flex-align-center`}
-        >
-          <div
-            className="flex flex-direction-column flex-justify-center flex-align-center"
-            style={{ rowGap: "30px" }}
-          >
-            <span
-              style={{
-                fontFamily: "cursive",
-                fontSize: "14px",
-                fontWeight: "500",
-              }}
-            >
-              {home && "UNLEASH CREATIVITY & INSPIRE INNOVATION"}
-            </span>
-            <span
-              style={{
-                fontFamily: "serif",
-                fontSize: "60px",
-                fontStyle: "italic",
-                width: "650px",
-                fontWeight: "600",
-              }}
-            >
-              {title}
-            </span>
-            <span
-              style={{
-                fontFamily: "cursive",
-                fontSize: "14px",
-                width: "750px",
-                fontWeight: "500",
-              }}
-            >
-              {home &&
-                "Experience effortless style with our Casual & Everyday collection: chic comfort, classic denim, and soft essentials for your daily fashion journey"}{" "}
-            </span>
-            {home && (
-              <Button
-                variant="outlined"
-                className={`${styles.btnRegisterNow} `}
-              >
-                REGISTER NOW
-              </Button>
-            )}
-          </div>
-        </div>
+        {element}
       </header>
     </>
   );
