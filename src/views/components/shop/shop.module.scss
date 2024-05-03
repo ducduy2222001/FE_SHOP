@@ -9,6 +9,7 @@
 .contentShop {
   height: 100vh;
   color: $color-white;
+  margin-bottom: 50px;
 
   .card {
     background-position: center;
@@ -23,59 +24,15 @@
     cursor: pointer;
   }
 
-  .card:hover::before,
-  .card:hover:after {
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    transition: all 0.5s;
-  }
-
-  .card::before,
-  .card::after {
-    position: absolute;
-    content: "";
-    width: 20%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    transition: all 0.5s;
-  }
-
-  .card::before {
-    top: 0;
-    right: 0;
-    border-radius: 0 15px 0 100%;
-  }
-
-  .card::after {
-    bottom: 0;
-    left: 0;
-    border-radius: 0 100% 0 15px;
-  }
-
   // card of men
   .cardMen {
     background-image: url(../../../assets/image/men.png);
   }
 
-  .cardMen::before,
-  .cardMen::after {
-    background-image: linear-gradient(
-      to left bottom,
-      #5e3d2e,
-      #6e4f3f,
-      #7e6251,
-      #8e7563,
-      #9e8877
-    );
-  }
-
   .cardMen:hover:after {
     content: "Men";
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
   }
 
   // card of women
@@ -83,20 +40,8 @@
     background-image: url(../../../assets/image/women.png);
   }
 
-  .cardWomen::before,
-  .cardWomen::after {
-    background-image: linear-gradient(
-      to right top,
-      #aec7dd,
-      #bac8df,
-      #c5c9e0,
-      #cfcbdf,
-      #d8cdde
-    );
-  }
-
   .cardWomen:hover:after {
-    color: $color-white;
+    color: $color-black;
     content: "Women";
   }
 }
