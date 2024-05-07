@@ -1,5 +1,5 @@
 import Headroom from "react-headroom";
-import { Badge, Button, IconButton } from "@mui/material";
+import { Badge, IconButton } from "@mui/material";
 import {
   LocalMallOutlined,
   FavoriteBorderOutlined,

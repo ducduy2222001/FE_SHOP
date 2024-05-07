@@ -4,44 +4,32 @@
   display: grid;
   grid-template-columns: 520px 150px 520px;
   justify-content: center;
+  padding: 50px 0px;
+
+  .filter {
+    width: 100%;
+    gap: 20px;
+
+    :global {
+      .btn-select .ant-select-selector .ant-select-selection-item {
+        padding: 0;
+        font-size: 18px;
+        text-align: start;
+        font-weight: 600;
+      }
+
+      .btn-select .ant-select-selector {
+        background-color: $color-dark-blue;
+        opacity: 0.9;
+        color: $color-white;
+        width: 100px;
+      }
+    }
+  }
 }
 
 .contentShop {
   height: 100vh;
   color: $color-white;
   margin-bottom: 50px;
-
-  .card {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-    width: 320px;
-    height: 420px;
-    font-size: 25px;
-    font-weight: bold;
-    border-radius: 15px;
-    cursor: pointer;
-  }
-
-  // card of men
-  .cardMen {
-    background-image: url(../../../assets/image/men.png);
-  }
-
-  .cardMen:hover:after {
-    content: "Men";
-    transform: scale(1.2);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  // card of women
-  .cardWomen {
-    background-image: url(../../../assets/image/women.png);
-  }
-
-  .cardWomen:hover:after {
-    color: $color-black;
-    content: "Women";
-  }
 }
