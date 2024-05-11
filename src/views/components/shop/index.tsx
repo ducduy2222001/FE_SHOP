@@ -1,87 +1,66 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import {
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  FormGroup,
+  Grid,
+  Paper,
+} from "@mui/material";
 import { withLayout } from "../../../layout";
 
 import bgShop from "../../../assets/image/shop.png";
 
 import "../../../assets/scss/common.scss";
 import styles from "./shop.module.scss";
-import { Grid } from "@mui/material";
-import { Button, Form, Select } from "antd";
-
-interface Option {
-  label: string;
-  value: string;
-}
-
-interface Select {
-  defaultValue: string;
-  options: Option[];
-}
-
-interface Selects {
-  [key: string]: Select;
-}
-
-const selects: Selects = {
-  0: {
-    defaultValue: "Size",
-    options: [
-      {
-        label: "S",
-        value: "s",
-      },
-      {
-        label: "M",
-        value: "m",
-      },
-      {
-        label: "L",
-        value: "l",
-      },
-      {
-        label: "XL",
-        value: "xl",
-      },
-    ],
-  },
-  1: {
-    defaultValue: "Color",
-    options: [
-      {
-        label: "RED",
-        value: "red",
-      },
-      {
-        label: "WHITE",
-        value: "white",
-      },
-      {
-        label: "BLACK",
-        value: "black",
-      },
-      {
-        label: "GRAY",
-        value: "gray",
-      },
-      {
-        label: "GREEN",
-        value: "green",
-      },
-    ],
-  },
-};
+import { SIZE } from "./constant";
 
 function Shop() {
-  const [form] = Form.useForm();
+  const sizes = ["S", "M", "L", "XL"];
+  const initialCheckboxes = Array.from(
+    { length: sizes.length },
+    (_, index) => ({ checked: false, name: sizes[index] }),
+  );
+  const [checkboxes, setCheckboxes] = useState(initialCheckboxes);
 
-  const handleChange = (name: any, value: any) => {
-    form.setFieldValue(name, value);
+  const handleCheckboxChange = (index: any) => {
+    const newCheckboxes = [...checkboxes];
+    newCheckboxes[index].checked = !newCheckboxes[index].checked;
+    setCheckboxes(newCheckboxes);
   };
 
-  const onFinish = () => {
-    const values = form.getFieldsValue();
-    console.log("Received values:", values);
+  const handleClear = () => {
+    const clearedCheckboxes = initialCheckboxes.map((checkbox) => ({
+      ...checkbox,
+      checked: false,
+    }));
+    setCheckboxes(clearedCheckboxes);
   };
+
+  const handleClose = () => {};
+
+  const handleSubmit = () => {
+    checkboxes.forEach((checkbox, index) => {
+      console.log(`${checkbox.name} is checked:`, checkbox.checked);
+    });
+  };
+
+  const buttonData = [
+    {
+      label: "Clear",
+      variant: "contained",
+      color: "secondary",
+      onClick: handleClear,
+    },
+    { label: "Close", variant: "contained", onClick: handleClose },
+    {
+      label: "Apply",
+      variant: "contained",
+      color: "primary",
+      onClick: handleSubmit,
+    },
+  ];
 
   return (
     <div
@@ -109,36 +88,59 @@ function Shop() {
               >
                 Filter by:
               </span>
-              <Form layout="inline" form={form} onFinish={onFinish}>
-                {Object.keys(selects).map((key) => (
-                  <Form.Item name={selects[key].defaultValue}>
-                    <Select
-                      defaultValue={selects[key].defaultValue}
-                      className="btn-select"
-                      size="large"
-                      options={selects[key].options}
-                      onChange={(name, value) => handleChange(name, value)}
-                    />
-                  </Form.Item>
-                ))}
-                <Form.Item>
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    size="large"
-                    ghost={true}
-                    style={{
-                      color: "#002c3e",
-                      borderColor: "#002c3e",
-                      fontSize: "18px",
-                      fontWeight: "600",
-                    }}
-                  >
-                    Submit
-                  </Button>
-                </Form.Item>
-              </Form>
+              <button className={`${styles.btn} font-m`}>Size</button>
+              <button className={`${styles.btn} font-m`}>Color</button>
+              <button className={`${styles.btn} font-m`}>Price</button>
             </div>
+            <Paper
+              elevation={3}
+              className={`${styles.listFilter} flex flex-justify-flex-start flex-direction-column`}
+            >
+              <div
+                style={{ textAlign: "left", fontWeight: "600" }}
+                className="font-l"
+              >
+                Size
+              </div>
+
+              <FormGroup>
+                <Box display="flex" justifyContent="flex-start" columnGap={10}>
+                  {checkboxes.map((checkbox, index) => (
+                    <FormControlLabel
+                      key={index}
+                      label={checkbox.name}
+                      labelPlacement="start"
+                      sx={{ marginLeft: "0px" }}
+                      control={
+                        <Checkbox
+                          checked={checkbox.checked}
+                          sx={{
+                            "& .MuiSvgIcon-root": { fontSize: 30 },
+                          }}
+                          onChange={() => handleCheckboxChange(index)}
+                        />
+                      }
+                    />
+                  ))}
+                </Box>
+              </FormGroup>
+
+              <div
+                className={`${styles.listBtnFilter} flex flex-justify-flex-start`}
+              >
+                {buttonData.map((button, index) => (
+                  <Button
+                    key={index}
+                    variant="contained"
+                    onClick={button.onClick}
+                    style={{ marginLeft: index > 0 ? 10 : 0 }}
+                    className={styles.btnFilters}
+                  >
+                    {button.label}
+                  </Button>
+                ))}
+              </div>
+            </Paper>
           </Grid>
           <Grid item xs={12}>
             <div style={{ height: "100vh" }}></div>
