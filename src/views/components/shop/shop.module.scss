@@ -14,9 +14,23 @@
     border-top: 1px solid $color-black;
   }
 
-  .btn {
+  .btnFilter {
     height: 40px;
     padding: 0 20px;
+    color: $color-white;
+    background-color: $color-dark-blue;
+    border: none;
+  }
+
+  .btnFilter:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
+
+  .btnFilterDisable {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
   }
 
   .listFilter {
@@ -25,12 +39,14 @@
     margin-top: 20px;
     padding: 30px 25px;
     row-gap: 20px;
+    position: relative;
+    z-index: 100;
 
     .listBtnFilter {
       column-gap: 10px;
       margin-top: 20px;
 
-      .btnFilters {
+      .btnCard {
         width: 100px;
         padding: 10px 0;
         background: $color-black;
@@ -39,9 +55,7 @@
         cursor: pointer;
       }
 
-      .btnApply:hover,
-      .btnClear:hover,
-      .btnClose:hover {
+      .btnCard:hover {
         opacity: 0.8;
       }
     }
