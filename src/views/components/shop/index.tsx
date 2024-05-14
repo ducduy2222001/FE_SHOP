@@ -14,9 +14,9 @@ import bgShop from "../../../assets/image/shop.png";
 
 import "../../../assets/scss/common.scss";
 import styles from "./shop.module.scss";
-import { SIZE, COLOR } from "./constant";
+import { SIZE, COLOR, TYPE_FILTER } from "./constant";
 
-interface Item {
+interface ShowCardProps {
   status: boolean;
   type: Object;
 }
@@ -33,29 +33,45 @@ function Shop() {
 
   const [checkboxes, setCheckboxes] = useState(listTypeFilters(SIZE));
   const [color, setColor] = useState(listTypeFilters(COLOR));
-  const [close, setClose] = useState(false);
-  const [id, setId] = useState(Number);
 
-  const [listArrFilter, setListArrFilter] = useState<Item[]>([]);
+  const ArrCardFilter = [
+    {
+      id: 0,
+      type: checkboxes,
+    },
+    {
+      id: 1,
+      type: color,
+    },
+  ];
+
+  const listBtnFilter = [
+    { id: 0, label: TYPE_FILTER[0].name, disable: false },
+    { id: 1, label: TYPE_FILTER[1].name, disable: false },
+  ];
+
+  const [id, setId] = useState<number>(0);
+  const [showCard, setShowCard] = useState<ShowCardProps[]>([]);
+  const [btnFilters, setBtnFilters] = useState(listBtnFilter);
 
   const handleCheckbox = (index: any, type: any, id: number) => {
     const newArr = [...type];
     newArr[index].status = !newArr[index].status;
-    if (id === 0) {
+    if (id === TYPE_FILTER[0].index) {
       setCheckboxes(newArr);
-    } else if (id === 1) {
+    } else if (id === TYPE_FILTER[1].index) {
       setColor(newArr);
     }
   };
 
   const handleClear = () => {
-    if (id === 0) {
+    if (id === TYPE_FILTER[0].index) {
       const cleared = listTypeFilters(SIZE).map((item) => ({
         ...item,
         status: false,
       }));
       setCheckboxes(cleared);
-    } else if (id === 1) {
+    } else if (id === TYPE_FILTER[1].index) {
       const cleared = listTypeFilters(COLOR).map((item) => ({
         ...item,
         status: false,
@@ -65,60 +81,52 @@ function Shop() {
   };
 
   const handleClose = () => {
-    const updatedArrFilter = ArrFilter.filter((item) => item.id === id).map(
-      (item) => ({
-        ...item,
-        status: false,
-      }),
-    );
-    setListArrFilter(updatedArrFilter);
+    const updatedArrCardFilter = ArrCardFilter.filter(
+      (item) => item.id === id,
+    ).map((item) => ({
+      ...item,
+      status: false,
+    }));
+    setShowCard(updatedArrCardFilter);
+
+    const updateListBtnFilter = listBtnFilter.map((item) => ({
+      ...item,
+      disable: false,
+    }));
+    setBtnFilters(updateListBtnFilter);
   };
 
-  const handleSubmit = (type: any) => {
+  const handleApply = (type: any) => {
     type.forEach((item: any) => {
       console.log(`${item.name} is checked:`, item.status);
     });
   };
 
-  const ArrFilter = [
+  const buttonsCard = [
     {
-      id: 0,
-      type: checkboxes,
-      status: false,
-      ref: useRef(0),
+      label: "Apply",
+      onClick: handleApply,
     },
-    {
-      id: 1,
-      type: color,
-      status: false,
-      ref: useRef(0),
-    },
-  ];
-
-  const buttonData = [
     {
       label: "Clear",
       onClick: handleClear,
     },
     { label: "Close", onClick: handleClose },
-    {
-      label: "Apply",
-      onClick: handleSubmit,
-    },
-  ];
-
-  const listFilters = [
-    { id: 0, label: "Size" },
-    { id: 1, label: "Color" },
   ];
 
   const handleOpenFilterBy = (id: number) => {
     setId(id);
-    const updatedArrFilter = ArrFilter.map((item) => ({
+    const updatedArrCardFilter = ArrCardFilter.map((item) => ({
       ...item,
       status: item.id === id,
     }));
-    setListArrFilter(updatedArrFilter);
+    setShowCard(updatedArrCardFilter);
+
+    const updateListBtnFilter = listBtnFilter.map((item) => ({
+      ...item,
+      disable: item.id === id,
+    }));
+    setBtnFilters(updateListBtnFilter);
   };
 
   return (
@@ -147,18 +155,20 @@ function Shop() {
               >
                 Filter by:
               </span>
-              {listFilters.map((item) => (
+              {btnFilters.map((item) => (
                 <button
                   key={item.id}
-                  disabled={listArrFilter[id]?.status}
-                  className={`${styles.btn} font-m`}
+                  disabled={item.disable}
+                  className={`${styles.btnFilter} ${
+                    item.disable ? styles.btnFilterDisable : ""
+                  } font-m`}
                   onClick={() => handleOpenFilterBy(item.id)}
                 >
                   {item.label}
                 </button>
               ))}
             </div>
-            {listArrFilter[id]?.status && (
+            {showCard[id]?.status && (
               <Paper
                 elevation={3}
                 className={`${styles.listFilter} flex flex-justify-flex-start flex-direction-column`}
@@ -167,7 +177,7 @@ function Shop() {
                   style={{ textAlign: "left", fontWeight: "600" }}
                   className="font-l"
                 >
-                  Size
+                  {TYPE_FILTER[id].name}
                 </div>
                 <FormGroup>
                   <Box
@@ -175,7 +185,7 @@ function Shop() {
                     justifyContent="flex-start"
                     columnGap={10}
                   >
-                    {ArrFilter[id].type.map((item, index) => (
+                    {ArrCardFilter[id].type.map((item, index) => (
                       <FormControlLabel
                         key={index}
                         label={item.name}
@@ -188,7 +198,7 @@ function Shop() {
                               "& .MuiSvgIcon-root": { fontSize: 30 },
                             }}
                             onChange={() =>
-                              handleCheckbox(index, ArrFilter[id].type, id)
+                              handleCheckbox(index, ArrCardFilter[id].type, id)
                             }
                           />
                         }
@@ -199,13 +209,13 @@ function Shop() {
                 <div
                   className={`${styles.listBtnFilter} flex flex-justify-flex-start`}
                 >
-                  {buttonData.map((button, index) => (
+                  {buttonsCard.map((button, index) => (
                     <Button
                       key={index}
                       variant="contained"
-                      onClick={() => button.onClick(ArrFilter[id].type)}
+                      onClick={() => button.onClick(ArrCardFilter[id].type)}
                       style={{ marginLeft: index > 0 ? 10 : 0 }}
-                      className={styles.btnFilters}
+                      className={styles.btnCard}
                     >
                       {button.label}
                     </Button>
@@ -213,9 +223,14 @@ function Shop() {
                 </div>
               </Paper>
             )}
+            <div
+              style={{ position: "absolute", top: "70em", background: "red" }}
+            >
+              ddđ
+            </div>
           </Grid>
           <Grid item xs={12}>
-            <div style={{ height: "100vh" }}></div>
+            <div style={{ height: "100vh" }}>sss</div>
           </Grid>
         </Grid>
       </div>
