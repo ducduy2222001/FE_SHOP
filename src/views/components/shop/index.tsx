@@ -14,53 +14,112 @@ import bgShop from "../../../assets/image/shop.png";
 
 import "../../../assets/scss/common.scss";
 import styles from "./shop.module.scss";
-import { SIZE } from "./constant";
+import { SIZE, COLOR } from "./constant";
+
+interface Item {
+  status: boolean;
+  type: Object;
+}
 
 function Shop() {
-  const sizes = ["S", "M", "L", "XL"];
-  const initialCheckboxes = Array.from(
-    { length: sizes.length },
-    (_, index) => ({ checked: false, name: sizes[index] }),
-  );
-  const [checkboxes, setCheckboxes] = useState(initialCheckboxes);
+  const listTypeFilters = (data: any) => {
+    const initial = Array.from({ length: data.length }, (_, index) => ({
+      status: false,
+      name: data[index],
+    }));
 
-  const handleCheckboxChange = (index: any) => {
-    const newCheckboxes = [...checkboxes];
-    newCheckboxes[index].checked = !newCheckboxes[index].checked;
-    setCheckboxes(newCheckboxes);
+    return initial;
+  };
+
+  const [checkboxes, setCheckboxes] = useState(listTypeFilters(SIZE));
+  const [color, setColor] = useState(listTypeFilters(COLOR));
+  const [close, setClose] = useState(false);
+  const [id, setId] = useState(Number);
+
+  const [listArrFilter, setListArrFilter] = useState<Item[]>([]);
+
+  const handleCheckbox = (index: any, type: any, id: number) => {
+    const newArr = [...type];
+    newArr[index].status = !newArr[index].status;
+    if (id === 0) {
+      setCheckboxes(newArr);
+    } else if (id === 1) {
+      setColor(newArr);
+    }
   };
 
   const handleClear = () => {
-    const clearedCheckboxes = initialCheckboxes.map((checkbox) => ({
-      ...checkbox,
-      checked: false,
-    }));
-    setCheckboxes(clearedCheckboxes);
+    if (id === 0) {
+      const cleared = listTypeFilters(SIZE).map((item) => ({
+        ...item,
+        status: false,
+      }));
+      setCheckboxes(cleared);
+    } else if (id === 1) {
+      const cleared = listTypeFilters(COLOR).map((item) => ({
+        ...item,
+        status: false,
+      }));
+      setColor(cleared);
+    }
   };
 
-  const handleClose = () => {};
+  const handleClose = () => {
+    const updatedArrFilter = ArrFilter.filter((item) => item.id === id).map(
+      (item) => ({
+        ...item,
+        status: false,
+      }),
+    );
+    setListArrFilter(updatedArrFilter);
+  };
 
-  const handleSubmit = () => {
-    checkboxes.forEach((checkbox, index) => {
-      console.log(`${checkbox.name} is checked:`, checkbox.checked);
+  const handleSubmit = (type: any) => {
+    type.forEach((item: any) => {
+      console.log(`${item.name} is checked:`, item.status);
     });
   };
+
+  const ArrFilter = [
+    {
+      id: 0,
+      type: checkboxes,
+      status: false,
+      ref: useRef(0),
+    },
+    {
+      id: 1,
+      type: color,
+      status: false,
+      ref: useRef(0),
+    },
+  ];
 
   const buttonData = [
     {
       label: "Clear",
-      variant: "contained",
-      color: "secondary",
       onClick: handleClear,
     },
-    { label: "Close", variant: "contained", onClick: handleClose },
+    { label: "Close", onClick: handleClose },
     {
       label: "Apply",
-      variant: "contained",
-      color: "primary",
       onClick: handleSubmit,
     },
   ];
+
+  const listFilters = [
+    { id: 0, label: "Size" },
+    { id: 1, label: "Color" },
+  ];
+
+  const handleOpenFilterBy = (id: number) => {
+    setId(id);
+    const updatedArrFilter = ArrFilter.map((item) => ({
+      ...item,
+      status: item.id === id,
+    }));
+    setListArrFilter(updatedArrFilter);
+  };
 
   return (
     <div
@@ -88,59 +147,72 @@ function Shop() {
               >
                 Filter by:
               </span>
-              <button className={`${styles.btn} font-m`}>Size</button>
-              <button className={`${styles.btn} font-m`}>Color</button>
-              <button className={`${styles.btn} font-m`}>Price</button>
+              {listFilters.map((item) => (
+                <button
+                  key={item.id}
+                  disabled={listArrFilter[id]?.status}
+                  className={`${styles.btn} font-m`}
+                  onClick={() => handleOpenFilterBy(item.id)}
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
-            <Paper
-              elevation={3}
-              className={`${styles.listFilter} flex flex-justify-flex-start flex-direction-column`}
-            >
-              <div
-                style={{ textAlign: "left", fontWeight: "600" }}
-                className="font-l"
+            {listArrFilter[id]?.status && (
+              <Paper
+                elevation={3}
+                className={`${styles.listFilter} flex flex-justify-flex-start flex-direction-column`}
               >
-                Size
-              </div>
-
-              <FormGroup>
-                <Box display="flex" justifyContent="flex-start" columnGap={10}>
-                  {checkboxes.map((checkbox, index) => (
-                    <FormControlLabel
-                      key={index}
-                      label={checkbox.name}
-                      labelPlacement="start"
-                      sx={{ marginLeft: "0px" }}
-                      control={
-                        <Checkbox
-                          checked={checkbox.checked}
-                          sx={{
-                            "& .MuiSvgIcon-root": { fontSize: 30 },
-                          }}
-                          onChange={() => handleCheckboxChange(index)}
-                        />
-                      }
-                    />
-                  ))}
-                </Box>
-              </FormGroup>
-
-              <div
-                className={`${styles.listBtnFilter} flex flex-justify-flex-start`}
-              >
-                {buttonData.map((button, index) => (
-                  <Button
-                    key={index}
-                    variant="contained"
-                    onClick={button.onClick}
-                    style={{ marginLeft: index > 0 ? 10 : 0 }}
-                    className={styles.btnFilters}
+                <div
+                  style={{ textAlign: "left", fontWeight: "600" }}
+                  className="font-l"
+                >
+                  Size
+                </div>
+                <FormGroup>
+                  <Box
+                    display="flex"
+                    justifyContent="flex-start"
+                    columnGap={10}
                   >
-                    {button.label}
-                  </Button>
-                ))}
-              </div>
-            </Paper>
+                    {ArrFilter[id].type.map((item, index) => (
+                      <FormControlLabel
+                        key={index}
+                        label={item.name}
+                        labelPlacement="start"
+                        sx={{ marginLeft: "0px" }}
+                        control={
+                          <Checkbox
+                            checked={item.status}
+                            sx={{
+                              "& .MuiSvgIcon-root": { fontSize: 30 },
+                            }}
+                            onChange={() =>
+                              handleCheckbox(index, ArrFilter[id].type, id)
+                            }
+                          />
+                        }
+                      />
+                    ))}
+                  </Box>
+                </FormGroup>
+                <div
+                  className={`${styles.listBtnFilter} flex flex-justify-flex-start`}
+                >
+                  {buttonData.map((button, index) => (
+                    <Button
+                      key={index}
+                      variant="contained"
+                      onClick={() => button.onClick(ArrFilter[id].type)}
+                      style={{ marginLeft: index > 0 ? 10 : 0 }}
+                      className={styles.btnFilters}
+                    >
+                      {button.label}
+                    </Button>
+                  ))}
+                </div>
+              </Paper>
+            )}
           </Grid>
           <Grid item xs={12}>
             <div style={{ height: "100vh" }}></div>
