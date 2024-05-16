@@ -15,3 +15,8 @@ export const TYPE_FILTER: { [key: number]: FilterType } = {
     name: "Color",
   },
 };
+
+export const LIST_BTN_FILTER = [
+  { id: 0, label: TYPE_FILTER[0].name, disable: false },
+  { id: 1, label: TYPE_FILTER[1].name, disable: false },
+];
