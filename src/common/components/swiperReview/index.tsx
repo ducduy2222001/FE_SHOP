@@ -11,55 +11,55 @@ import styles from "./swiperreview.module.scss";
 const DATA_CARDITEM = [
   {
     id: 1,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 2,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 3,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 4,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 5,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 6,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 7,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 8,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 9,
-    small: true,
+    size: true,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
@@ -86,7 +86,7 @@ const SwiperReview = () => {
           return (
             <SwiperSlide key={item.id}>
               <CardItem
-                small={item.small}
+                size={item.size}
                 badge={item.badge}
                 image={item.image}
               />

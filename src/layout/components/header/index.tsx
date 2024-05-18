@@ -37,7 +37,7 @@ const Header = (props: any) => {
           backgroundImage: `url(${image})`,
         }}
       >
-        <Headroom>
+        <Headroom style={{ zIndex: 100000 }}>
           <div className={`${styles.header} ${styles.gridContainer}`}>
             <div className={`${styles.headerContentFirst}`}>
               <ul className={`${styles.menu} flex flex-align-center`}>

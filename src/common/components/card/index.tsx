@@ -8,13 +8,13 @@ import clothes from "../../../assets/image/clothes1.png";
 import styles from "./card.module.scss";
 
 type CardItemProps = {
-  small: boolean;
+  size: boolean;
   image: string;
   badge: boolean;
 };
 
 const CardItem = (props: CardItemProps) => {
-  const { small, image, badge } = props;
+  const { size, image, badge } = props;
   return (
     <>
       <Grid
@@ -24,7 +24,7 @@ const CardItem = (props: CardItemProps) => {
         direction="column"
         justifyContent="space-between"
         alignItems="flex-start"
-        sx={{ height: `${small ? "330px" : "460px"}` }}
+        sx={{ height: `${size ? "330px" : "460px"}` }}
       >
         {badge ? (
           <Badge.Ribbon
@@ -37,7 +37,7 @@ const CardItem = (props: CardItemProps) => {
             <CardActionArea className={`${styles.card} `}>
               <div
                 className={`${styles.btnCard} ${
-                  small ? styles.btnCardSmall : styles.btnCardBig
+                  size ? styles.btnCardSmall : styles.btnCardBig
                 } flex flex-direction-column`}
               >
                 <IconButton
@@ -56,8 +56,8 @@ const CardItem = (props: CardItemProps) => {
               <CardMedia
                 component="img"
                 sx={{
-                  width: `${small ? "180px" : "270px"}`,
-                  height: `${small ? "230px" : "330px"}`,
+                  width: `${size ? "180px" : "270px"}`,
+                  height: `${size ? "230px" : "330px"}`,
                 }}
                 image={clothes}
                 alt="green iguana"
@@ -69,7 +69,7 @@ const CardItem = (props: CardItemProps) => {
           <CardActionArea className={`${styles.card} `}>
             <div
               className={`${styles.btnCard} ${
-                small ? styles.btnCardSmall : styles.btnCardBig
+                size ? styles.btnCardSmall : styles.btnCardBig
               } flex flex-direction-column`}
             >
               <IconButton
@@ -88,8 +88,8 @@ const CardItem = (props: CardItemProps) => {
             <CardMedia
               component="img"
               sx={{
-                width: `${small ? "190px" : "270px"}`,
-                height: `${small ? "230px" : "330px"}`,
+                width: `${size ? "190px" : "270px"}`,
+                height: `${size ? "230px" : "330px"}`,
               }}
               image={clothes}
               alt="green iguana"

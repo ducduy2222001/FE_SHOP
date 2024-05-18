@@ -16,18 +16,18 @@ import bgShop from "../../../assets/image/shop.png";
 import "../../../assets/scss/common.scss";
 import styles from "./shop.module.scss";
 import { SIZE, COLOR, TYPE_FILTER, LIST_BTN_FILTER } from "./constant";
+import CardItem from "../../../common/components/card";
 
 interface ShowCardProps {
   status: boolean;
   type: Object;
 }
-
 interface TypeFilterProps {
   id: number;
-  status: boolean;
   name: string;
+  status: boolean;
+  type: number;
 }
-
 const Shop = () => {
   const listTypeFilters = (data: any, type: number) => {
     const initial = Array.from({ length: data.length }, (_, index) => ({
@@ -42,7 +42,8 @@ const Shop = () => {
   const [checkboxes, setCheckboxes] = useState(listTypeFilters(SIZE, 0));
   const [color, setColor] = useState(listTypeFilters(COLOR, 1));
   const [id, setId] = useState<number>(0);
-  const [arrFilter, setArrFilter] = useState<any[]>([]);
+  const [arrSizeFilter, setArrSizeFilter] = useState<TypeFilterProps[]>([]);
+  const [arrColorFilter, setArrColorFilter] = useState<TypeFilterProps[]>([]);
 
   const ArrCardFilter = [
     {
@@ -56,7 +57,7 @@ const Shop = () => {
   ];
 
   const [typeFilter, setTypeFilter] = useState<TypeFilterProps[]>(
-    ArrCardFilter[0].type,
+    ArrCardFilter[id].type,
   );
   const [showCard, setShowCard] = useState<ShowCardProps[]>([]);
   const [btnFilters, setTypeFilterFilters] = useState(LIST_BTN_FILTER);
@@ -127,16 +128,69 @@ const Shop = () => {
     setTypeFilterFilters(updateListBtnFilter);
   };
 
-  const handleApply = (type: any) => {
-    console.log(type[0].type);
+  const filterAndSetArrFilter = (
+    filterValue: number,
+    setArrFilter: React.Dispatch<React.SetStateAction<TypeFilterProps[]>>,
+  ) => {
+    if (!Array.isArray(typeFilter)) {
+      console.error("Expected 'type' to be an array.");
+      return;
+    }
+    const newType = typeFilter.filter(
+      (item) => item.status === true && item.type === filterValue,
+    );
+    const filteredTypes = newType.filter(
+      (item) =>
+        !isItemInArray(item, arrSizeFilter) &&
+        !isItemInArray(item, arrColorFilter),
+    );
+    setArrFilter((prevTypes) => [...prevTypes, ...filteredTypes]);
+  };
 
-    const newType = type.filter((item: any) => item.status === true);
-    const filteredTypes = newType.filter((item: any) => {
-      return !arrFilter.some(
-        (existingType: any) => existingType.name === item.name,
+  const isItemInArray = (item: TypeFilterProps, arr: TypeFilterProps[]) => {
+    return arr.some((existingType) => existingType.name === item.name);
+  };
+
+  const handleApply = () => {
+    filterAndSetArrFilter(0, setArrSizeFilter);
+    filterAndSetArrFilter(1, setArrColorFilter);
+  };
+
+  const handleDeleteFilter = (items: TypeFilterProps) => {
+    const filterMap: Record<
+      number,
+      React.Dispatch<React.SetStateAction<TypeFilterProps[]>>
+    > = {
+      0: setArrSizeFilter,
+      1: setArrColorFilter,
+    };
+    const filterType = items.type;
+    const filterFunction = filterMap[filterType];
+    if (filterFunction) {
+      filterFunction((prevFilter) =>
+        prevFilter.filter((item) => item.id !== items.id),
       );
-    });
-    setArrFilter((prevTypes: any) => [...prevTypes, ...filteredTypes]);
+    }
+  };
+
+  const handleClearAllFilter = () => {
+    setArrSizeFilter([]);
+    setArrColorFilter([]);
+
+    const clearedSize = listTypeFilters(SIZE, TYPE_FILTER[0].index).map(
+      (item) => ({
+        ...item,
+        status: false,
+      }),
+    );
+    setCheckboxes(clearedSize);
+    const clearedColor = listTypeFilters(COLOR, TYPE_FILTER[1].index).map(
+      (item) => ({
+        ...item,
+        status: false,
+      }),
+    );
+    setColor(clearedColor);
   };
 
   const buttonsCard = [
@@ -179,7 +233,7 @@ const Shop = () => {
               </span>
               {btnFilters.map((item) => (
                 <button
-                  key={item.id}
+                  key={`${item.id}-${item.label}`}
                   disabled={item.disable}
                   className={`${styles.btnFilter} ${
                     item.disable ? styles.btnFilterDisable : ""
@@ -193,7 +247,7 @@ const Shop = () => {
             {showCard[id]?.status && (
               <Paper
                 elevation={3}
-                className={`${styles.listFilter} flex flex-justify-flex-start flex-direction-column`}
+                className={`${styles.listFilter} ${styles.widthScreen} flex flex-justify-flex-start flex-direction-column`}
               >
                 <div
                   style={{ textAlign: "left", fontWeight: "600" }}
@@ -235,7 +289,7 @@ const Shop = () => {
                     <Button
                       key={index}
                       variant="contained"
-                      onClick={() => button.onClick(typeFilter)}
+                      onClick={button.onClick}
                       style={{ marginLeft: index > 0 ? 10 : 0 }}
                       className={styles.btnCard}
                     >
@@ -247,13 +301,30 @@ const Shop = () => {
             )}
             <div
               style={{
-                position: "absolute",
-                marginTop: "95px",
+                // position: "absolute",
+                marginTop: "15px",
                 gap: "5px",
               }}
               className="flex flex-direction-row "
             >
-              {arrFilter.map((item, index) => (
+              {(arrSizeFilter.length > 0 || arrColorFilter.length > 0) && (
+                <Chip
+                  size="medium"
+                  sx={{
+                    background: "#78bcc4",
+                    color: "#fff",
+                    fontSize: "16px",
+                    height: "40px",
+                    width: "120px",
+                    "& .MuiChip-deleteIcon": {
+                      color: "white",
+                    },
+                  }}
+                  label={"Clear all"}
+                  onDelete={handleClearAllFilter}
+                />
+              )}
+              {arrSizeFilter.map((item: TypeFilterProps, index) => (
                 <Chip
                   key={index}
                   size="medium"
@@ -268,13 +339,35 @@ const Shop = () => {
                     },
                   }}
                   label={item.name}
-                  onDelete={handleApply}
+                  onDelete={() => handleDeleteFilter(item)}
+                />
+              ))}
+              {arrColorFilter.map((item: TypeFilterProps, index) => (
+                <Chip
+                  key={index}
+                  size="medium"
+                  sx={{
+                    background: "#78bcc4",
+                    color: "#fff",
+                    fontSize: "16px",
+                    height: "40px",
+                    maxWidth: "100px",
+                    "& .MuiChip-deleteIcon": {
+                      color: "white",
+                    },
+                  }}
+                  label={item.name}
+                  onDelete={() => handleDeleteFilter(item)}
                 />
               ))}
             </div>
           </Grid>
-          <Grid item xs={12}>
-            <div style={{ height: "100vh" }}>sss</div>
+          <Grid container item spacing={3} justifyContent={"space-between"}>
+            {Array.from(Array(8)).map((_, index) => (
+              <Grid key={index} item>
+                <CardItem size={false} image={""} badge={false} />
+              </Grid>
+            ))}
           </Grid>
         </Grid>
       </div>

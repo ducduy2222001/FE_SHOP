@@ -34,13 +34,12 @@
   }
 
   .listFilter {
-    width: 100%;
     min-height: auto;
     margin-top: 10px;
     padding: 30px 25px;
     row-gap: 20px;
-    position: relative;
-    z-index: 100;
+    position: absolute;
+    z-index: 1;
 
     .listBtnFilter {
       column-gap: 10px;

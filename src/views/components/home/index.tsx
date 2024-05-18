@@ -52,25 +52,25 @@ const DATA_SERVICE = [
 const DATA_CARDITEM = [
   {
     id: 1,
-    small: false,
+    size: false,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 2,
-    small: false,
+    size: false,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 3,
-    small: false,
+    size: false,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 4,
-    small: false,
+    size: false,
     badge: false,
     image: "../../../assets/image/clothes.png",
   },
@@ -79,25 +79,25 @@ const DATA_CARDITEM = [
 const DATA_CARDITEMSALE = [
   {
     id: 1,
-    small: false,
+    size: false,
     badge: true,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 2,
-    small: false,
+    size: false,
     badge: true,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 3,
-    small: false,
+    size: false,
     badge: true,
     image: "../../../assets/image/clothes.png",
   },
   {
     id: 4,
-    small: false,
+    size: false,
     badge: true,
     image: "../../../assets/image/clothes.png",
   },
@@ -266,7 +266,7 @@ const ListCard = (props: any) => {
           {data.map((item: any) => {
             return (
               <CardItem
-                small={item.small}
+                size={item.small}
                 badge={item.badge}
                 image={item.image}
               />
