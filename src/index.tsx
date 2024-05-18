@@ -5,13 +5,13 @@ import reportWebVitals from "./reportWebVitals";
 import Home from "./views/components/home";
 import Shop from "./views/components/shop";
 const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement,
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
     {/* <Home /> */}
     <Shop />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

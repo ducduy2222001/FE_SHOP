@@ -1,6 +1,7 @@
 import React, { ReactNode, ComponentType } from "react";
 import Header from "./components/header";
 import Footer from "./components/footer/Footer";
+import ScrollToTop from "../common/components/scrollToTop";
 
 type LayoutProps = {
   children: ReactNode;
@@ -22,6 +23,7 @@ export const withLayout = (Component: ComponentType, headerProps: object) => {
   return () => (
     <Layout headerProps={headerProps}>
       <Component />
+      <ScrollToTop />
     </Layout>
   );
 };

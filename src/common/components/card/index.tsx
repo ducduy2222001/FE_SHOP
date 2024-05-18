@@ -1,7 +1,7 @@
 import React from "react";
 import { Badge } from "antd";
 import CardMedia from "@mui/material/CardMedia";
-import { CardActionArea, Grid, IconButton } from "@mui/material";
+import { CardActionArea, Grid, IconButton, Stack } from "@mui/material";
 import { ShoppingBasket, RemoveRedEye } from "@mui/icons-material";
 
 import clothes from "../../../assets/image/clothes1.png";
@@ -24,7 +24,7 @@ const CardItem = (props: CardItemProps) => {
         direction="column"
         justifyContent="space-between"
         alignItems="flex-start"
-        sx={{ height: `${size ? "330px" : "460px"}` }}
+        sx={{ height: `${size ? "330px" : "auto"}` }}
       >
         {badge ? (
           <Badge.Ribbon
@@ -97,19 +97,27 @@ const CardItem = (props: CardItemProps) => {
             />
           </CardActionArea>
         )}
-        <span
-          style={{
-            fontSize: "14px",
-            opacity: "0.5",
-            fontWeight: "600",
-          }}
+        <Stack
+          direction="column"
+          justifyContent="flex-start"
+          alignItems="flex-start"
+          spacing={1}
+          style={{ marginTop: "10px" }}
         >
-          MEN
-        </span>
-        <span className="font-l" style={{ fontWeight: "700" }}>
-          T-Shirt Name 1
-        </span>
-        <span className="font-m">$100</span>
+          <span
+            style={{
+              fontSize: "14px",
+              opacity: "0.5",
+              fontWeight: "600",
+            }}
+          >
+            MEN
+          </span>
+          <span className="font-l" style={{ fontWeight: "700" }}>
+            T-Shirt Name 1
+          </span>
+          <span className="font-m">$100</span>
+        </Stack>
       </Grid>
     </>
   );
