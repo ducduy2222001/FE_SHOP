@@ -60,35 +60,36 @@ const Header = (props: any) => {
             >
               <IconButton
                 aria-label="search"
+                children={<SearchOutlined className={`${styles.iconSize}`} />}
                 className={`${styles.iconColor}`}
                 onClick={() => {
                   console.log("click search");
                 }}
-              >
-                <SearchOutlined className={`${styles.iconSize}`} />
-              </IconButton>
+              />
               <IconButton
                 aria-label="heart"
+                children={
+                  <Badge badgeContent={4} color="secondary">
+                    <FavoriteBorderOutlined className={`${styles.iconSize}`} />
+                  </Badge>
+                }
                 className={`${styles.iconColor}`}
                 onClick={() => {
                   console.log("click heart");
                 }}
-              >
-                <Badge badgeContent={4} color="secondary">
-                  <FavoriteBorderOutlined className={`${styles.iconSize}`} />
-                </Badge>
-              </IconButton>
+              />
               <IconButton
                 aria-label="cart"
+                children={
+                  <Badge badgeContent={4} color="secondary">
+                    <LocalMallOutlined className={`${styles.iconSize}`} />
+                  </Badge>
+                }
                 className={`${styles.iconColor}`}
                 onClick={() => {
                   console.log("click cart");
                 }}
-              >
-                <Badge badgeContent={4} color="secondary">
-                  <LocalMallOutlined className={`${styles.iconSize}`} />
-                </Badge>
-              </IconButton>
+              />
             </div>
           </div>
         </Headroom>
