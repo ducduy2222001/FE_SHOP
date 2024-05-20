@@ -10,13 +10,13 @@ import {
   Paper,
 } from "@mui/material";
 import { withLayout } from "../../../layout";
+import CardItem from "../../../common/components/card";
+import { SIZE, COLOR, TYPE_FILTER, LIST_BTN_FILTER } from "./constant";
 
 import bgShop from "../../../assets/image/shop.png";
 
 import "../../../assets/scss/common.scss";
 import styles from "./shop.module.scss";
-import { SIZE, COLOR, TYPE_FILTER, LIST_BTN_FILTER } from "./constant";
-import CardItem from "../../../common/components/card";
 
 interface ShowCardProps {
   status: boolean;
@@ -57,7 +57,7 @@ const Shop = () => {
   ];
 
   const [typeFilter, setTypeFilter] = useState<TypeFilterProps[]>(
-    ArrCardFilter[id].type
+    ArrCardFilter[id].type,
   );
   const [showCard, setShowCard] = useState<ShowCardProps[]>([]);
   const [btnFilters, setTypeFilterFilters] = useState(LIST_BTN_FILTER);
@@ -96,7 +96,7 @@ const Shop = () => {
         (item) => ({
           ...item,
           status: false,
-        })
+        }),
       );
       setCheckboxes(cleared);
       setTypeFilter(cleared);
@@ -105,7 +105,7 @@ const Shop = () => {
         (item) => ({
           ...item,
           status: false,
-        })
+        }),
       );
       setColor(cleared);
       setTypeFilter(cleared);
@@ -114,7 +114,7 @@ const Shop = () => {
 
   const handleClose = () => {
     const updatedArrCardFilter = ArrCardFilter.filter(
-      (item) => item.id === id
+      (item) => item.id === id,
     ).map((item) => ({
       ...item,
       status: false,
@@ -130,19 +130,19 @@ const Shop = () => {
 
   const filterAndSetArrFilter = (
     filterValue: number,
-    setArrFilter: React.Dispatch<React.SetStateAction<TypeFilterProps[]>>
+    setArrFilter: React.Dispatch<React.SetStateAction<TypeFilterProps[]>>,
   ) => {
     if (!Array.isArray(typeFilter)) {
       console.error("Expected 'type' to be an array.");
       return;
     }
     const newType = typeFilter.filter(
-      (item) => item.status === true && item.type === filterValue
+      (item) => item.status === true && item.type === filterValue,
     );
     const filteredTypes = newType.filter(
       (item) =>
         !isItemInArray(item, arrSizeFilter) &&
-        !isItemInArray(item, arrColorFilter)
+        !isItemInArray(item, arrColorFilter),
     );
     setArrFilter((prevTypes) => [...prevTypes, ...filteredTypes]);
   };
@@ -168,7 +168,7 @@ const Shop = () => {
     const filterFunction = filterMap[filterType];
     if (filterFunction) {
       filterFunction((prevFilter) =>
-        prevFilter.filter((item) => item.id !== items.id)
+        prevFilter.filter((item) => item.id !== items.id),
       );
     }
   };
@@ -181,14 +181,14 @@ const Shop = () => {
       (item) => ({
         ...item,
         status: false,
-      })
+      }),
     );
     setCheckboxes(clearedSize);
     const clearedColor = listTypeFilters(COLOR, TYPE_FILTER[1].index).map(
       (item) => ({
         ...item,
         status: false,
-      })
+      }),
     );
     setColor(clearedColor);
   };
