@@ -3,20 +3,14 @@ import { Badge } from "antd";
 import CardMedia from "@mui/material/CardMedia";
 import {
   CardActionArea,
-  Dialog,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
   Grid,
   IconButton,
   Stack,
   Tooltip,
 } from "@mui/material";
-import { ShoppingBasket, RemoveRedEye } from "@mui/icons-material";
-
+import { ShoppingBasket, FavoriteBorder } from "@mui/icons-material";
 import clothes from "../../../assets/image/clothes1.png";
 import styles from "./card.module.scss";
-import { DiaLogCustom } from "../dialog";
 
 type CardItemProps = {
   size: boolean;
@@ -25,16 +19,6 @@ type CardItemProps = {
 };
 
 const CardItem = (props: CardItemProps) => {
-  const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-    console.log("dđ");
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
   const { size, image, badge } = props;
   return (
     <>
@@ -61,27 +45,23 @@ const CardItem = (props: CardItemProps) => {
                   size ? styles.btnCardSmall : styles.btnCardBig
                 } flex flex-direction-column`}
               >
-                <IconButton
-                  className={`${styles.iConButton}`}
-                  children={<ShoppingBasket />}
-                  disableRipple={true}
-                  size="small"
-                />
-                <IconButton
-                  className={`${styles.iConButton}`}
-                  children={<RemoveRedEye />}
-                  disableRipple={true}
-                  size="small"
-                  onClick={handleClickOpen}
-                />
+                <Tooltip title="Select options" placement="left" arrow={true}>
+                  <IconButton
+                    className={`${styles.iConButton}`}
+                    children={<ShoppingBasket />}
+                    disableRipple={true}
+                    size="small"
+                  />
+                </Tooltip>
+                <Tooltip title="Like" placement="left" arrow={true}>
+                  <IconButton
+                    className={`${styles.iConButton}`}
+                    children={<FavoriteBorder />}
+                    disableRipple={true}
+                    size="small"
+                  />
+                </Tooltip>
               </div>
-              {/* <DiaLogCustom>sdsdsd</DiaLogCustom> */}
-              <Dialog open={open} fullScreen={true} maxWidth={"md"}>
-                <DialogTitle>Optional sizes</DialogTitle>
-                <DialogContentText>
-                  You can set my maximum width and whether to adapt or not.
-                </DialogContentText>
-              </Dialog>
               <CardMedia
                 component="img"
                 sx={{
@@ -101,7 +81,7 @@ const CardItem = (props: CardItemProps) => {
                 size ? styles.btnCardSmall : styles.btnCardBig
               } flex flex-direction-column`}
             >
-              <Tooltip title="Select options" placement="left">
+              <Tooltip title="Select options" placement="left" arrow={true}>
                 <IconButton
                   className={`${styles.iConButton}`}
                   children={<ShoppingBasket />}
@@ -112,10 +92,10 @@ const CardItem = (props: CardItemProps) => {
                   }}
                 />
               </Tooltip>
-              <Tooltip title="Quick view" placement="left">
+              <Tooltip title="Like" placement="left" arrow={true}>
                 <IconButton
                   className={`${styles.iConButton}`}
-                  children={<RemoveRedEye />}
+                  children={<FavoriteBorder />}
                   disableRipple={true}
                   size="small"
                 />
