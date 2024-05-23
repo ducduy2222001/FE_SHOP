@@ -1,0 +1,41 @@
+@import "../../../assets/scss/common.scss";
+
+.aboutUs {
+  .title {
+    font-size: 40px;
+    font-family: serif;
+    font-style: italic;
+    text-align: left;
+  }
+
+  .storyContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .subtitle,
+  .intro {
+    text-align: left;
+    font-family: serif;
+  }
+
+  .subtitle {
+    letter-spacing: 5px;
+  }
+
+  .intro {
+    font-style: italic;
+  }
+
+  .description {
+    text-align: left;
+    font-family: system-ui;
+  }
+}
+
+.contentAboutUs {
+  height: 100vh;
+  color: $color-white;
+  margin-bottom: 50px;
+}

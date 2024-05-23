@@ -8,27 +8,37 @@ import {
 
 import styles from "./header.module.scss";
 import Logo from "../../../common/components/logo";
+import { NavLink } from "react-router-dom";
 const LIST_HOME = [
   {
     id: 1,
     name: "Home",
+    link: "/",
+    checked: true,
   },
   {
     id: 2,
     name: "Shop",
+    link: "/shop",
+    checked: false,
   },
   {
     id: 3,
     name: "About US",
+    link: "/about-us",
+    checked: false,
   },
   {
     id: 4,
     name: "Contact Us",
+    link: "/contact-us",
+    checked: false,
   },
 ];
 
 const Header = (props: any) => {
   const { image, element } = props;
+
   return (
     <>
       <header
@@ -40,12 +50,20 @@ const Header = (props: any) => {
         <Headroom style={{ zIndex: 100000 }}>
           <div className={`${styles.header} ${styles.gridContainer}`}>
             <div className={`${styles.headerContentFirst}`}>
-              <ul className={`${styles.menu} flex flex-align-center`}>
+              <ul className={`${styles.menu} flex flex-align-start`}>
                 {LIST_HOME.map((item) => {
                   return (
-                    <li key={item.id} style={{ cursor: "pointer" }}>
+                    <NavLink
+                      to={item.link}
+                      key={item.id}
+                      className={({ isActive }) =>
+                        `${isActive ? styles.active : ""} ${
+                          styles.itemHeader
+                        } flex flex-align-center flex-justify-center`
+                      }
+                    >
                       {item.name}
-                    </li>
+                    </NavLink>
                   );
                 })}
               </ul>
