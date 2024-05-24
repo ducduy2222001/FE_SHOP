@@ -1,5 +1,10 @@
 import React from "react";
-import { IconButton, Theme, useScrollTrigger } from "@mui/material";
+import {
+  IconButton,
+  Theme,
+  backdropClasses,
+  useScrollTrigger,
+} from "@mui/material";
 
 import { styled } from "@mui/material/styles";
 import { NorthRounded } from "@mui/icons-material";
@@ -9,6 +14,10 @@ const StyledIconButton = styled(IconButton)(({ theme }: { theme: Theme }) => ({
   bottom: theme.spacing(3),
   right: theme.spacing(3),
   zIndex: 111,
+  background: "#ebf5ff",
+  "&:hover": {
+    backgroundColor: "#ebf5ff",
+  },
 }));
 
 const ScrollToTop: React.FC = () => {
@@ -31,7 +40,6 @@ const ScrollToTop: React.FC = () => {
           onClick={scrollToTop}
           color="primary"
           aria-label="scroll to top"
-          sx={{ background: "#ebf5ff" }}
         >
           <IconButton
             children={<NorthRounded sx={{ fontSize: "30px", color: "#000" }} />}
