@@ -16,7 +16,7 @@ const AboutUs = () => {
           direction="row"
           justifyContent="center"
           alignItems="center"
-          sx={{ padding: "50px 0px" }}
+          sx={{ padding: "50px 0px", borderBottom: "1px solid #000" }}
         >
           <Grid item xs>
             <div className={styles.title}>
@@ -44,6 +44,64 @@ const AboutUs = () => {
             </div>
           </Grid>
         </Grid>
+        <Grid container sx={{ padding: "50px 0px" }}>
+          <Grid item>
+            <div
+              className={`${styles.storyContainer} flex flex-direction-column flex-justify-start`}
+            >
+              <span className={styles.subtitle}>QUALITY ASSURANCE</span>
+              <div className={styles.title}>
+                We Understand That Fashion Is An Expression Of Identity, And We
+                Take Pride In Delivering Products That Embody The Highest
+                Standards Of Quality.
+              </div>
+              <div className={styles.description}>
+                Our journey to excellence begins with meticulous sourcing, where
+                we carefully select materials that meet our stringent criteria
+                for durability, comfort, and style. Every garment is crafted
+                with precision in our state-of-the-art manufacturing facilities,
+                ensuring attention to detail at every stitch. Our commitment to
+                quality doesn't end there – rigorous quality control processes
+                guarantee that each piece meets our exacting standards before it
+                finds its way to your wardrobe. Trust in FemmeWardrobe for
+                fashion that not only captures attention but withstands the test
+                of time.
+              </div>
+            </div>
+          </Grid>
+        </Grid>
+      </div>
+      <div
+        className={`${styles.containerA} flex flex-direction-column flex-justify-center flex-align-center `}
+      >
+        <div className="widthScreen ">
+          <Grid container sx={{ color: "white" }}>
+            <Grid item xs={5}>
+              <div className={`${styles.storyContainer} `}>
+                <span className={styles.subtitle}>
+                  CUSTOMER-CENTRIC APPROACH
+                </span>
+                <div className={styles.title}>
+                  Beyond Fashion: Nurturing A Customer-Centric Experience
+                </div>
+                <div className={styles.description}>
+                  We believe that the essence of our success lies in the
+                  satisfaction of our customers. Our commitment to providing an
+                  exceptional shopping experience goes beyond trends and styles
+                  – it's about understanding and meeting the unique needs of
+                  every individual who chooses FemmeWardrobe. From personalized
+                  recommendations to hassle-free returns, we've crafted every
+                  aspect of our service with you in mind. Our dedicated customer
+                  support team is here to ensure your journey with us is
+                  seamless, enjoyable, and exceeds your expectations. Join our
+                  community of empowered fashion enthusiasts, where your
+                  satisfaction is not just a priority; it's our passion.
+                </div>
+              </div>
+            </Grid>
+            <Grid item xs></Grid>
+          </Grid>
+        </div>
       </div>
     </div>
   );

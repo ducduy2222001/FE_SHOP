@@ -11,7 +11,7 @@
   .storyContainer {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
   }
 
   .subtitle,
@@ -31,6 +31,18 @@
   .description {
     text-align: left;
     font-family: system-ui;
+  }
+
+  .containerA {
+    background-image: url(../../../assets/image/image2.png);
+    background-color: $color-dark-gray;
+    background-blend-mode: multiply;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100vh;
   }
 }
 
