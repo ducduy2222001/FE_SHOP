@@ -13,8 +13,9 @@ const StyledIconButton = styled(IconButton)(({ theme }: { theme: Theme }) => ({
   position: "fixed",
   bottom: theme.spacing(3),
   right: theme.spacing(3),
-  zIndex: 111,
+  zIndex: 100000,
   background: "#ebf5ff",
+
   "&:hover": {
     backgroundColor: "#ebf5ff",
   },

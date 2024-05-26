@@ -203,6 +203,7 @@ const ContentHome = () => {
             fontStyle: "italic",
             width: "650px",
             fontWeight: "600",
+            textAlign: "center",
           }}
         >
           Every day is a canvas waiting to be painted with the beauty of life!
@@ -213,6 +214,7 @@ const ContentHome = () => {
             fontSize: "14px",
             width: "750px",
             fontWeight: "500",
+            textAlign: "center",
           }}
         >
           Experience effortless style with our Casual & Everyday collection:
@@ -274,9 +276,18 @@ const ListCard = (props: any) => {
           })}
         </Grid>
       </Grid>
-      <Button variant="outlined" className={`${styles.btnSeeAll} `}>
-        SEE ALL
-      </Button>
+      <Grid
+        container
+        flex={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+      >
+        <Grid item>
+          <Button variant="outlined" className={`${styles.btnSeeAll} `}>
+            SEE ALL
+          </Button>
+        </Grid>
+      </Grid>
     </div>
   );
 };
