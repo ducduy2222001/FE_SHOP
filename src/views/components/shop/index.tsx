@@ -385,11 +385,12 @@ const ContentShop = () => {
       >
         <span
           style={{
-            fontFamily: "serif",
+            width: "650px",
             fontSize: "60px",
             fontStyle: "italic",
-            width: "650px",
+            fontFamily: "serif",
             fontWeight: "600",
+            textAlign: "center",
           }}
         >
           Shop

@@ -1,0 +1,22 @@
+@import "../../../assets/scss/common.scss";
+
+.contactUs {
+  .title {
+    font-family: serif;
+    letter-spacing: 5px;
+  }
+
+  .content {
+    width: 700px;
+    font-size: 40px;
+    font-family: serif;
+    font-style: italic;
+    text-align: center;
+  }
+}
+
+.contentContact {
+  height: 100vh;
+  color: $color-white;
+  margin-bottom: 50px;
+}
