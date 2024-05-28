@@ -18,7 +18,7 @@ import bgHome from "../../../assets/image/home.png";
 import "../../../assets/scss/common.scss";
 import styles from "./home.module.scss";
 
-const DATA_SERVICE = [
+export const DATA_SERVICE = [
   {
     id: 1,
     icon: <LockOutlined style={{ fontSize: "45px" }} />,
@@ -103,6 +103,63 @@ const DATA_CARDITEMSALE = [
   },
 ];
 
+const CARDITEM_SWIPER = [
+  {
+    id: 1,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 2,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 3,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 4,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 5,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 6,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 7,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 8,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+  {
+    id: 9,
+    size: true,
+    badge: false,
+    image: "../../../assets/image/clothes.png",
+  },
+];
+
 const Home = () => {
   return (
     <div
@@ -128,7 +185,7 @@ const Home = () => {
             }}
           />
         </div>
-        <SwiperReview />
+        <SwiperReview CARDITEM_SWIPER={CARDITEM_SWIPER} />
       </div>
       <Collection gender={true} />
       <ListCard data={DATA_CARDITEMSALE} sale={true} />
@@ -312,7 +369,7 @@ const Collection = (props: { gender: boolean }) => {
           height: "650px",
           position: "relative",
           zIndex: "-1",
-          marginTop: "40px ",
+          marginTop: "40px",
         }}
       >
         <img
@@ -374,7 +431,7 @@ const Collection = (props: { gender: boolean }) => {
   );
 };
 
-const ServiceOfShop = (props: any) => {
+export const ServiceOfShop = (props: any) => {
   const { title, content, icon } = props;
   return (
     <div

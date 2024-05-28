@@ -8,64 +8,18 @@ import "swiper/css/pagination";
 
 import styles from "./swiperreview.module.scss";
 
-const DATA_CARDITEM = [
-  {
-    id: 1,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 2,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 3,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 4,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 5,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 6,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 7,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 8,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 9,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-];
+interface CardItemProps {
+  id: number;
+  size: boolean;
+  badge: boolean;
+  image: string;
+}
 
-const SwiperReview = () => {
+interface SwiperReviewProps {
+  CARDITEM_SWIPER: CardItemProps[];
+}
+
+const SwiperReview = ({ CARDITEM_SWIPER }: SwiperReviewProps) => {
   return (
     <div style={{ width: "100%" }}>
       <Swiper
@@ -82,7 +36,7 @@ const SwiperReview = () => {
         modules={[Pagination, Autoplay]}
         className={styles.swiper}
       >
-        {DATA_CARDITEM.map((item) => {
+        {CARDITEM_SWIPER.map((item) => {
           return (
             <SwiperSlide key={item.id}>
               <CardItem
