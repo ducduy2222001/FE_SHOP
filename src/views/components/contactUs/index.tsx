@@ -6,6 +6,7 @@ import Map from "../../../common/components/mapLeaflet";
 import bgContactUs from "../../../assets/image/image1.png";
 
 import styles from "./contactUs.module.scss";
+import { DATA_SERVICE, ServiceOfShop } from "../home";
 
 const ContactUs = () => {
   const handleSubmit = (event: any) => {
@@ -101,6 +102,20 @@ const ContactUs = () => {
         </Grid>
       </div>
       <Map />
+      <div
+        className="widthScreen flex flex-align-center flex-justify-space-between"
+        style={{ paddingTop: "50px" }}
+      >
+        {DATA_SERVICE.map((item) => {
+          return (
+            <ServiceOfShop
+              icon={item.icon}
+              title={item.title}
+              content={item.content}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

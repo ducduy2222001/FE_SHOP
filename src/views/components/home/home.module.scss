@@ -41,6 +41,7 @@
     .titleImg {
       font-size: 40px;
       color: $color-white;
+      text-align: center;
       font-family: "Cormorant Garamond", serif;
       font-style: italic;
       font-weight: 600;
@@ -65,7 +66,6 @@
 
   .containC {
     height: auto;
-    padding-bottom: 80px;
 
     .btnViewCollection {
       font-size: 14px;

@@ -8,7 +8,9 @@ import {
 
 import styles from "./header.module.scss";
 import Logo from "../../../common/components/logo";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { KeyboardEvent, MouseEvent, useState } from "react";
+import Panel from "../../../common/components/panel";
 const LIST_HOME = [
   {
     id: 1,
@@ -38,6 +40,20 @@ const LIST_HOME = [
 
 const Header = (props: any) => {
   const { image, element } = props;
+  const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer =
+    (open: boolean) => (event: KeyboardEvent | MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as KeyboardEvent).key === "Tab" ||
+          (event as KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      setOpen(open);
+    };
 
   return (
     <>
@@ -93,7 +109,7 @@ const Header = (props: any) => {
                 }
                 className={`${styles.iconColor}`}
                 onClick={() => {
-                  console.log("click heart");
+                  navigate("/favorite-product");
                 }}
               />
               <IconButton
@@ -104,9 +120,14 @@ const Header = (props: any) => {
                   </Badge>
                 }
                 className={`${styles.iconColor}`}
-                onClick={() => {
-                  console.log("click cart");
-                }}
+                onClick={toggleDrawer(true)}
+              />
+              <Panel
+                open={open}
+                width={"600px"}
+                toggleDrawer={toggleDrawer}
+                title="Shopping Cart"
+                component={<div>hahaha</div>}
               />
             </div>
           </div>

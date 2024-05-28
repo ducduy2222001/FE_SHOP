@@ -45,14 +45,6 @@ const CardItem = (props: CardItemProps) => {
                   size ? styles.btnCardSmall : styles.btnCardBig
                 } flex flex-direction-column`}
               >
-                <Tooltip title="Select options" placement="left" arrow={true}>
-                  <IconButton
-                    className={`${styles.iConButton}`}
-                    children={<ShoppingBasket />}
-                    disableRipple={true}
-                    size="small"
-                  />
-                </Tooltip>
                 <Tooltip title="Like" placement="left" arrow={true}>
                   <IconButton
                     className={`${styles.iConButton}`}
@@ -81,17 +73,6 @@ const CardItem = (props: CardItemProps) => {
                 size ? styles.btnCardSmall : styles.btnCardBig
               } flex flex-direction-column`}
             >
-              <Tooltip title="Select options" placement="left" arrow={true}>
-                <IconButton
-                  className={`${styles.iConButton}`}
-                  children={<ShoppingBasket />}
-                  disableRipple={true}
-                  size="small"
-                  onClick={() => {
-                    console.log("ddđ");
-                  }}
-                />
-              </Tooltip>
               <Tooltip title="Like" placement="left" arrow={true}>
                 <IconButton
                   className={`${styles.iConButton}`}

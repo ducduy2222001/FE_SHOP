@@ -6,6 +6,7 @@ import Home from "./views/components/home";
 import Shop from "./views/components/shop";
 import AboutUs from "./views/components/aboutUs";
 import ContactUs from "./views/components/contactUs";
+import FavoriteProduct from "./views/components/favoriteProduct";
 
 import "./index.css";
 
@@ -13,7 +14,6 @@ const routes = [
   {
     path: "/",
     element: <Home />,
-    errorElement: <div>Error</div>,
   },
   {
     path: "/shop",
@@ -26,6 +26,14 @@ const routes = [
   {
     path: "/contact-us",
     element: <ContactUs />,
+  },
+  {
+    path: "/favorite-product",
+    element: <FavoriteProduct />,
+  },
+  {
+    path: "*",
+    element: <div>Error</div>,
   },
 ];
 
@@ -42,4 +50,4 @@ ReactDOM.render(
   document.getElementById("root"),
 );
 
-reportWebVitals(console.log);
+reportWebVitals();
