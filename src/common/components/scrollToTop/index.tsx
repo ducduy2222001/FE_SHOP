@@ -1,13 +1,7 @@
 import React from "react";
-import {
-  IconButton,
-  Theme,
-  backdropClasses,
-  useScrollTrigger,
-} from "@mui/material";
-
-import { styled } from "@mui/material/styles";
+import { IconButton, Theme, useScrollTrigger } from "@mui/material";
 import { NorthRounded } from "@mui/icons-material";
+import { styled } from "@mui/material/styles";
 
 const StyledIconButton = styled(IconButton)(({ theme }: { theme: Theme }) => ({
   position: "fixed",

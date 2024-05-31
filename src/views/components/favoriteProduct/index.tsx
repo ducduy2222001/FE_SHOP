@@ -1,9 +1,10 @@
 import React from "react";
 import { withLayout } from "../../../layout";
 import { Grid, Typography } from "@mui/material";
+import CardItem from "../../../common/components/card";
 
 import styles from "./favoriteProduct.module.scss";
-import CardItem from "../../../common/components/card";
+
 const FavoriteProduct = () => {
   return (
     <div
@@ -39,4 +40,4 @@ const FavoriteProduct = () => {
   );
 };
 
-export default withLayout(FavoriteProduct);
+export default withLayout(FavoriteProduct, {});

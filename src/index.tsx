@@ -1,45 +1,17 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
-import Home from "./views/components/home";
-import Shop from "./views/components/shop";
-import AboutUs from "./views/components/aboutUs";
-import ContactUs from "./views/components/contactUs";
-import FavoriteProduct from "./views/components/favoriteProduct";
+import routes from "./routes";
 
 import "./index.css";
 
-const routes = [
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/shop",
-    element: <Shop />,
-  },
-  {
-    path: "/about-us",
-    element: <AboutUs />,
-  },
-  {
-    path: "/contact-us",
-    element: <ContactUs />,
-  },
-  {
-    path: "/favorite-product",
-    element: <FavoriteProduct />,
-  },
-  {
-    path: "*",
-    element: <div>Error</div>,
-  },
-];
+const container = document.getElementById("root");
+const root = createRoot(container!);
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
-    <BrowserRouter basename="">
+    <BrowserRouter>
       <Routes>
         {routes.map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
@@ -47,7 +19,6 @@ ReactDOM.render(
       </Routes>
     </BrowserRouter>
   </React.StrictMode>,
-  document.getElementById("root"),
 );
 
 reportWebVitals();

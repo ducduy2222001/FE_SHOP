@@ -1,0 +1,20 @@
+@import "../../../../../assets/scss/common.scss";
+
+.Panel {
+  height: 200px;
+
+  .btnPanel {
+    font-size: 14px;
+    font-weight: 600;
+    color: $color-black;
+    border-color: $color-black;
+    letter-spacing: 4px;
+    border-radius: unset;
+  }
+
+  .btnPanel:hover {
+    color: $color-white;
+    background-color: $color-black;
+    border-color: unset;
+  }
+}
