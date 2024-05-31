@@ -1,7 +1,8 @@
 import React from "react";
 
-import styles from "./footer.module.scss";
 import Logo from "../../../common/components/logo";
+
+import styles from "./footer.module.scss";
 
 const TITLES = {
   introduction: "Introduction",

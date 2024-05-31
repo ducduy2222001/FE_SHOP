@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Badge } from "antd";
 import CardMedia from "@mui/material/CardMedia";
 import {
@@ -8,8 +8,10 @@ import {
   Stack,
   Tooltip,
 } from "@mui/material";
-import { ShoppingBasket, FavoriteBorder } from "@mui/icons-material";
+import { FavoriteBorder } from "@mui/icons-material";
+
 import clothes from "../../../assets/image/clothes1.png";
+
 import styles from "./card.module.scss";
 
 type CardItemProps = {

@@ -1,16 +1,17 @@
-import Headroom from "react-headroom";
+import { KeyboardEvent, MouseEvent, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Badge, IconButton } from "@mui/material";
 import {
   LocalMallOutlined,
   FavoriteBorderOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
+import Headroom from "react-headroom";
+import Logo from "../../../common/components/logo";
+import { PanelShoppingCart } from "../../../views/components/cart/component/PanelShoppingCart";
 
 import styles from "./header.module.scss";
-import Logo from "../../../common/components/logo";
-import { NavLink, useNavigate } from "react-router-dom";
-import { KeyboardEvent, MouseEvent, useState } from "react";
-import Panel from "../../../common/components/panel";
+
 const LIST_HOME = [
   {
     id: 1,
@@ -122,13 +123,7 @@ const Header = (props: any) => {
                 className={`${styles.iconColor}`}
                 onClick={toggleDrawer(true)}
               />
-              <Panel
-                open={open}
-                width={"600px"}
-                toggleDrawer={toggleDrawer}
-                title="Shopping Cart"
-                component={<div>hahaha</div>}
-              />
+              <PanelShoppingCart open={open} toggleDrawer={toggleDrawer} />
             </div>
           </div>
         </Headroom>

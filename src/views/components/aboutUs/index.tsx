@@ -1,9 +1,10 @@
 import React from "react";
+import { Grid } from "@mui/material";
 import { withLayout } from "../../../layout";
+
 import bgAboutUs from "../../../assets/image/aboutus.jpg";
 
 import styles from "./aboutUs.module.scss";
-import { Grid } from "@mui/material";
 
 const AboutUs = () => {
   return (

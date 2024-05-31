@@ -1,8 +1,9 @@
-import { CloseCircleOutlined } from "@ant-design/icons";
-import { Box, Drawer, IconButton, Typography } from "@mui/material";
+import { Box, Drawer, Grid, IconButton, Typography } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Panel = (props) => {
-  const { open, toggleDrawer, component, title, width } = props;
+  const { open, toggleDrawer, componentBody, componentFooter, title, width } =
+    props;
   return (
     <Drawer
       anchor="right"
@@ -19,23 +20,31 @@ const Panel = (props) => {
         },
       }}
     >
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        padding={2}
-        borderBottom="1px solid #ccc"
+      <Grid
+        container
+        direction="column"
+        justifyContent={"space-between"}
+        sx={{ height: "100%" }}
       >
-        <Typography variant="h6" component="span">
-          {title}
-        </Typography>
-        <IconButton onClick={toggleDrawer(false)}>
-          <CloseCircleOutlined />
-        </IconButton>
-      </Box>
-      <Box flex="1" padding={2}>
-        {component}
-      </Box>
+        <Grid item sx={{ maxHeight: "382px", height: "100%" }}>
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            padding={2}
+            borderBottom="1px solid #ccc"
+          >
+            <Typography variant="h6" component="span">
+              {title}
+            </Typography>
+            <IconButton onClick={toggleDrawer(false)}>
+              <CloseIcon sx={{ color: "#000", fontSize: "25px" }} />
+            </IconButton>
+          </Box>
+          {componentBody}
+        </Grid>
+        {componentFooter}
+      </Grid>
     </Drawer>
   );
 };

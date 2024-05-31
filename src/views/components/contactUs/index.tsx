@@ -2,11 +2,11 @@ import React from "react";
 import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 import { withLayout } from "../../../layout";
 import Map from "../../../common/components/mapLeaflet";
+import { DATA_SERVICE, ServiceOfShop } from "../home";
 
 import bgContactUs from "../../../assets/image/image1.png";
 
 import styles from "./contactUs.module.scss";
-import { DATA_SERVICE, ServiceOfShop } from "../home";
 
 const ContactUs = () => {
   const handleSubmit = (event: any) => {
@@ -106,9 +106,10 @@ const ContactUs = () => {
         className="widthScreen flex flex-align-center flex-justify-space-between"
         style={{ paddingTop: "50px" }}
       >
-        {DATA_SERVICE.map((item) => {
+        {DATA_SERVICE.map((item, index) => {
           return (
             <ServiceOfShop
+              key={index}
               icon={item.icon}
               title={item.title}
               content={item.content}
