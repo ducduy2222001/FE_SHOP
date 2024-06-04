@@ -7,6 +7,7 @@ import { DATA_SERVICE, ServiceOfShop } from "../home";
 import bgContactUs from "../../../assets/image/image1.png";
 
 import styles from "./contactUs.module.scss";
+import { ButtonCustom } from "../../../common/components/button";
 
 const ContactUs = () => {
   const handleSubmit = (event: any) => {
@@ -89,14 +90,18 @@ const ContactUs = () => {
                 multiline
                 rows={4}
               />
-              <Button
+              <ButtonCustom
                 type="submit"
-                variant="contained"
-                color="primary"
+                variant="outlined"
+                text="Submit"
                 sx={{ mt: 2 }}
-              >
-                Submit
-              </Button>
+                className={`${styles.btnSubmit}`}
+                style={{
+                  padding: "10px 20px",
+                  color: "black",
+                  borderColor: "black",
+                }}
+              />
             </Box>
           </Grid>
         </Grid>

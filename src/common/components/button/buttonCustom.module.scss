@@ -1,0 +1,14 @@
+@import "../../../assets/scss/common.scss";
+
+.btn {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 4px !important;
+  border-radius: unset !important;
+
+  &:hover {
+    color: $color-black !important;
+    background-color: $color-white !important;
+    border-color: unset !important;
+  }
+}

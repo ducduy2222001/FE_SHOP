@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import ItemCart from "../ItemCart";
 import Panel from "../../../../../common/components/panel";
 
 import styles from "./panelShoppingCart.module.scss";
+import { ButtonCustom } from "../../../../../common/components/button";
 
 interface PanelProps {
   open: boolean;
@@ -49,26 +50,32 @@ const CheckOutAndView = () => {
         </Box>
       </Grid>
       <Grid container direction="column" gap={2} padding={"0 20px"}>
-        <Button
+        <ButtonCustom
           variant="outlined"
-          size="large"
           className={styles.btnPanel}
           onClick={() => {
             navigate("/cart");
           }}
-        >
-          VIEW CART
-        </Button>
-        <Button
+          text="VIEW CART"
+          style={{
+            padding: "10px 30px",
+            color: "black ",
+            borderColor: "black",
+          }}
+        />
+        <ButtonCustom
           variant="outlined"
-          size="large"
           className={styles.btnPanel}
           onClick={() => {
             navigate("/checkout");
           }}
-        >
-          CHECKOUT
-        </Button>
+          text="CHECKOUT"
+          style={{
+            padding: "10px 30px",
+            color: "black ",
+            borderColor: "black",
+          }}
+        />
       </Grid>
     </Grid>
   );
