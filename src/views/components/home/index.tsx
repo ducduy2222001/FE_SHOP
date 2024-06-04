@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import {
   LockOutlined,
   LocalShippingOutlined,
@@ -17,6 +17,7 @@ import bgHome from "../../../assets/image/home.png";
 
 import "../../../assets/scss/common.scss";
 import styles from "./home.module.scss";
+import { ButtonCustom } from "../../../common/components/button";
 
 export const DATA_SERVICE = [
   {
@@ -212,9 +213,15 @@ const Home = () => {
             <span className={`${styles.titleImg}`}>
               Explore Our Shoes Collection Now!
             </span>
-            <Button variant="outlined" className={`${styles.btnRegisterNow} `}>
-              REGISTER NOW
-            </Button>
+            <ButtonCustom
+              variant="outlined"
+              text="REGISTER NOW"
+              style={{
+                padding: "20px 40px",
+                borderColor: "#ffffff",
+                color: "#ffffff",
+              }}
+            />
           </div>
         </div>
       </div>
@@ -278,9 +285,15 @@ const ContentHome = () => {
           chic comfort, classic denim, and soft essentials for your daily
           fashion journey
         </span>
-        <Button variant="outlined" className={`${styles.btnRegisterNow} `}>
-          REGISTER NOW
-        </Button>
+        <ButtonCustom
+          variant="outlined"
+          text="REGISTER NOW"
+          style={{
+            padding: "20px 40px",
+            borderColor: "#ffffff",
+            color: "#ffffff",
+          }}
+        />
       </div>
     </div>
   );
@@ -340,9 +353,17 @@ const ListCard = (props: any) => {
         alignItems={"center"}
       >
         <Grid item>
-          <Button variant="outlined" className={`${styles.btnSeeAll} `}>
-            SEE ALL
-          </Button>
+          <ButtonCustom
+            variant="outlined"
+            text="SEE ALL"
+            className={`${styles.btnSeeAll}`}
+            style={{
+              padding: "15px 35px",
+              color: "#78bcc4",
+              borderColor: "#78bcc4",
+              marginTop: "30px",
+            }}
+          />
         </Grid>
       </Grid>
     </div>
@@ -423,9 +444,17 @@ const Collection = (props: { gender: boolean }) => {
           temporary, congue justo at, lobortis orci. Aliquam venenatis dui
           lectus, eu convallis turpis convallis et. Pelentesque.
         </span>
-        <Button variant="contained" className={`${styles.btnViewCollection} `}>
-          VIEW COLLECTIONS
-        </Button>
+        <ButtonCustom
+          variant="contained"
+          className={`${styles.btnViewCollection}`}
+          text="VIEW COLLECTIONS"
+          style={{
+            padding: "20px 40px",
+            borderColor: "#ffffff",
+            color: "#ffffff",
+            marginTop: "20px",
+          }}
+        />
       </div>
     </div>
   );

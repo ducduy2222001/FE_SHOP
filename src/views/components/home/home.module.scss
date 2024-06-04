@@ -10,20 +10,9 @@
   }
 
   .containA {
-    .btnSeeAll {
-      font-size: 14px;
-      font-weight: 600;
-      padding: 15px 35px;
-      color: $color-blue-music;
-      border-color: $color-blue-music;
-      letter-spacing: 3px;
-      border-radius: unset;
-      margin-top: 30px;
-    }
-
     .btnSeeAll:hover {
-      color: $color-white;
-      background-color: $color-blue-music;
+      color: $color-white !important;
+      background-color: $color-blue-music !important;
     }
   }
 
@@ -47,36 +36,18 @@
       font-weight: 600;
       width: 450px;
     }
-
-    .btnRegisterNow {
-      font-size: 14px;
-      font-weight: 600;
-      padding: 20px 40px;
-      color: $color-white;
-      border-color: $color-white;
-      letter-spacing: 4px;
-      border-radius: unset;
-    }
-
-    .btnRegisterNow:hover {
-      color: $color-black;
-      background-color: $color-white;
-    }
   }
 
   .containC {
     height: auto;
 
     .btnViewCollection {
-      font-size: 14px;
-      font-weight: 600;
-      padding: 20px 40px;
-      color: $color-white;
-      border-color: $color-white;
-      letter-spacing: 4px;
-      border-radius: unset;
       background-color: $color-black;
-      margin-top: 20px;
+
+      &:hover {
+        background-color: $color-black !important;
+        color: $color-white !important;
+      }
     }
   }
 
@@ -92,19 +63,4 @@
 .contentHome {
   height: 100vh;
   color: $color-white;
-
-  .btnRegisterNow {
-    font-size: 14px;
-    font-weight: 600;
-    padding: 20px 40px;
-    color: $color-white;
-    border-color: $color-white;
-    letter-spacing: 4px;
-    border-radius: unset;
-  }
-
-  .btnRegisterNow:hover {
-    color: $color-black;
-    background-color: $color-white;
-  }
 }
