@@ -5,6 +5,9 @@ import { withLayout } from "../../../layout";
 
 import imageProduct from "../../../assets/image/image1.png";
 
+import styles from "./cart.module.scss";
+import { ButtonCustom } from "../../../common/components/button";
+import { useNavigate } from "react-router-dom";
 interface DataType {
   key: React.Key;
   image: ReactNode;
@@ -56,6 +59,7 @@ for (let i = 1; i < 20; i++) {
 }
 
 export const Cart = () => {
+  const navigate = useNavigate();
   return (
     <Grid
       container
@@ -68,6 +72,7 @@ export const Cart = () => {
         className="widthScreen flex flex-direction-column"
         style={{ rowGap: "30px" }}
       >
+        <h1>Cart</h1>
         <Paper>
           <ConfigProvider
             theme={{
@@ -77,16 +82,12 @@ export const Cart = () => {
               },
             }}
           >
-            <Table
-              dataSource={data}
-              columns={columns}
-              title={() => <h1>Cart</h1>}
-            />
+            <Table dataSource={data} columns={columns} />
           </ConfigProvider>
         </Paper>
         <Grid container direction={"row"} justifyContent={"right"}>
           <Grid item xs={6}>
-            <Paper>
+            <Paper sx={{ border: "1px solid #78bcc4" }}>
               <Box borderBottom="1px solid #ccc">
                 <Typography
                   variant="h4"
@@ -97,11 +98,7 @@ export const Cart = () => {
                   Total cart
                 </Typography>
               </Box>
-              <Grid
-                item
-                borderBottom="1px solid #ccc"
-                borderTop="1px solid #ccc"
-              >
+              <Grid item>
                 <Box
                   display={"flex"}
                   flexDirection={"row"}
@@ -127,17 +124,21 @@ export const Cart = () => {
                   </Typography>
                 </Box>
                 <Box padding={"20px 20px"}>
-                  <Button
-                    sx={{ width: "100%" }}
+                  <ButtonCustom
                     variant="outlined"
                     size="large"
-                    // className={styles.btnPanel}
+                    className={styles.btnPayment}
                     onClick={() => {
-                      // navigate("");
+                      navigate("/checkout");
                     }}
-                  >
-                    VIEW CART
-                  </Button>
+                    text="Proceed with payment"
+                    style={{
+                      width: "100%",
+                      padding: "10px 30px",
+                      color: "#78bcc4",
+                      borderColor: "#78bcc4",
+                    }}
+                  />
                 </Box>
               </Grid>
             </Paper>
