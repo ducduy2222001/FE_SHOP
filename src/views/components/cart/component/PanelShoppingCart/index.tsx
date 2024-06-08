@@ -59,8 +59,8 @@ const CheckOutAndView = () => {
           text="VIEW CART"
           style={{
             padding: "10px 30px",
-            color: "black ",
-            borderColor: "black",
+            color: "#78bcc4",
+            borderColor: "#78bcc4",
           }}
         />
         <ButtonCustom
@@ -72,8 +72,8 @@ const CheckOutAndView = () => {
           text="CHECKOUT"
           style={{
             padding: "10px 30px",
-            color: "black ",
-            borderColor: "black",
+            color: "#78bcc4",
+            borderColor: "#78bcc4",
           }}
         />
       </Grid>
