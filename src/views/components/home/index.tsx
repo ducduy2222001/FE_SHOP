@@ -426,7 +426,9 @@ const Collection = (props: { gender: boolean }) => {
               }
         }
       >
-        <span className="font-s">{gender ? "Men" : "Women"}</span>
+        <span className="font-l" style={{ fontWeight: "500" }}>
+          {gender ? "Men" : "Women"}
+        </span>
         <span
           style={{
             fontSize: "32px",
@@ -437,7 +439,7 @@ const Collection = (props: { gender: boolean }) => {
           Style collection
         </span>
         <span
-          className="font-s"
+          className="font-m"
           style={gender ? { textAlign: "right" } : { textAlign: "left" }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id leo
@@ -473,7 +475,7 @@ export const ServiceOfShop = (props: any) => {
     >
       <span>{icon}</span>
       <h2 style={{ fontFamily: "serif", fontStyle: "italic" }}>{title}</h2>
-      <span>{content}</span>
+      <span style={{ textAlign: "center" }}>{content}</span>
     </div>
   );
 };

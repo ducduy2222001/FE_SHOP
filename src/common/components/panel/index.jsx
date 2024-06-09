@@ -25,8 +25,10 @@ const Panel = (props) => {
         direction="column"
         justifyContent={"space-between"}
         sx={{ height: "100%" }}
+        flexDirection={"column"}
+        display={"flex"}
       >
-        <Grid item sx={{ maxHeight: "382px", height: "100%" }}>
+        <Box>
           <Box
             display="flex"
             justifyContent="space-between"
@@ -42,7 +44,7 @@ const Panel = (props) => {
             </IconButton>
           </Box>
           {componentBody}
-        </Grid>
+        </Box>
         {componentFooter}
       </Grid>
     </Drawer>
