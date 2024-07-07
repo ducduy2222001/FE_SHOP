@@ -15,6 +15,7 @@ interface PanelProps {
 
 const CheckOutAndView = () => {
   const navigate = useNavigate();
+
   return (
     <Grid
       item
@@ -88,12 +89,10 @@ const ListItemCart = () => {
       display={"flex"}
       flexDirection={"column"}
       gap={2}
-      height={"100%"}
-      maxHeight={"382px"}
-      className="ddddddddđ"
-      sx={{ overflow: "auto !important", overflowY: "scroll" }}
+      overflow={"auto"}
+      className={styles.boxContainer}
     >
-      {Array.from(Array(5)).map((_) => (
+      {Array.from(Array(1)).map((_) => (
         <ItemCart />
       ))}
     </Box>

@@ -67,7 +67,7 @@ const Footer = () => {
           return (
             <div
               key={item.id}
-              className="text-align-left flex flex-direction-column"
+              className="text-align-left flex flex-direction-column font-m"
             >
               {item.content}
             </div>
@@ -82,7 +82,7 @@ const Footer = () => {
           return (
             <div
               key={item.id}
-              className="text-align-left flex flex-direction-column"
+              className="text-align-left flex flex-direction-column font-m"
             >
               {item.address}
             </div>
@@ -97,7 +97,7 @@ const Footer = () => {
           return (
             <div
               key={item.id}
-              className="text-align-left flex flex-direction-column"
+              className="text-align-left flex flex-direction-column font-m"
             >
               {item.policy}
             </div>
@@ -112,7 +112,7 @@ const Footer = () => {
           return (
             <div
               key={item.id}
-              className="text-align-left flex flex-direction-column"
+              className="text-align-left flex flex-direction-column font-m"
             >
               {item.social}
             </div>

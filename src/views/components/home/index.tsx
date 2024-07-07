@@ -15,7 +15,6 @@ import clothes_model1 from "../../../assets/image/clothes_model1.png";
 import clothes_model2 from "../../../assets/image/clothes_model2.png";
 import bgHome from "../../../assets/image/home.png";
 
-import "../../../assets/scss/common.scss";
 import styles from "./home.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
 
@@ -181,7 +180,7 @@ const Home = () => {
               width: "100px",
               height: "3px",
               border: "none",
-              background: "#78bcc4",
+              background: "var(--mama-blue)",
               marginTop: "15px",
             }}
           />
@@ -426,7 +425,9 @@ const Collection = (props: { gender: boolean }) => {
               }
         }
       >
-        <span className="font-s">{gender ? "Men" : "Women"}</span>
+        <span className="font-l" style={{ fontWeight: "500" }}>
+          {gender ? "Men" : "Women"}
+        </span>
         <span
           style={{
             fontSize: "32px",
@@ -437,7 +438,7 @@ const Collection = (props: { gender: boolean }) => {
           Style collection
         </span>
         <span
-          className="font-s"
+          className="font-m"
           style={gender ? { textAlign: "right" } : { textAlign: "left" }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut id leo
@@ -473,7 +474,7 @@ export const ServiceOfShop = (props: any) => {
     >
       <span>{icon}</span>
       <h2 style={{ fontFamily: "serif", fontStyle: "italic" }}>{title}</h2>
-      <span>{content}</span>
+      <span style={{ textAlign: "center" }}>{content}</span>
     </div>
   );
 };

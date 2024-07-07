@@ -8,3 +8,14 @@
     background-color: $color-blue-music !important;
   }
 }
+
+.boxContainer {
+  max-height: 365px;
+  overflow-y: scroll;
+}
+
+@media (min-height: 919px) {
+  .boxContainer {
+    max-height: 630px;
+  }
+}

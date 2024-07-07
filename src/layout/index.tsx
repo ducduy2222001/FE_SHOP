@@ -18,7 +18,7 @@ const Layout: React.FC<LayoutProps> = ({ children, headerProps }) => {
   );
 };
 
-// HOC để áp dụng Layout
+// HOC để áp dụng Layout (Higher Order Component) sử sdung lại
 export const withLayout = (Component: ComponentType, headerProps: object) => {
   return () => (
     <Layout headerProps={headerProps}>

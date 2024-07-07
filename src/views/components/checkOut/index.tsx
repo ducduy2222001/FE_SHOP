@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import { withLayout } from "../../../layout";
 import {
   Autocomplete,
@@ -14,10 +14,22 @@ import { countries } from "./constant";
 import styles from "./checkout.module.scss";
 
 const CheckOut = () => {
+  const [open, setOpen] = useState(true);
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log("🚀 ~ handleSubmit ~ data:", data);
+  };
+
+  const handleApply = (event: any) => {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const promotionalCode = data.get("promotional-code");
+
+    console.log({
+      promotionalCode: promotionalCode,
+    });
   };
 
   return (
@@ -32,11 +44,76 @@ const CheckOut = () => {
         className="widthScreen flex flex-direction-column"
         style={{ gap: "20px" }}
       >
-        <h1 style={{ borderBottom: "1px solid #ccc", paddingBottom: "10px" }}>
-          Checkout
-        </h1>
+        <h1>Checkout</h1>
+        <Box
+          borderTop="4px solid #78bcc4"
+          padding="20px"
+          display={"flex"}
+          gap={2}
+          flexDirection={"column"}
+          sx={{
+            background: "#f7f6f7",
+          }}
+        >
+          <div style={{ fontWeight: "500" }}>
+            <span>Do you have a promo code?</span>
+            <span
+              style={{ color: "#78bcc4", cursor: "pointer" }}
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
+              {" "}
+              Click here to enter the code.
+            </span>
+          </div>
+          {open && (
+            <Box display={"flex"} gap={2} flexDirection={"column"}>
+              <div style={{ fontStyle: "italic" }}>
+                If you have a discount code, please fill it in below.
+              </div>
+              <Box
+                component="form"
+                onSubmit={handleApply}
+                display={"flex"}
+                gap={2}
+              >
+                <TextField
+                  required
+                  id="promotional-code"
+                  name="promotional-code"
+                  label="Promotional code"
+                  type="text"
+                />
+                <ButtonCustom
+                  type="submit"
+                  variant="outlined"
+                  size="large"
+                  className={styles.btnOrder}
+                  text="Apply"
+                  style={{
+                    height: "56px",
+                    padding: "10px 20px",
+                    color: "#78bcc4",
+                    borderColor: "#78bcc4",
+                  }}
+                />
+              </Box>
+            </Box>
+          )}
+        </Box>
         <Grid container component="form" onSubmit={handleSubmit} gap={4}>
           <Grid item xs={7}>
+            <Typography
+              variant="h6"
+              component={"div"}
+              fontSize={"20px"}
+              borderBottom={"1px solid #ccc"}
+              paddingBottom={"10px"}
+              marginBottom={"30px"}
+            >
+              Payment information
+            </Typography>
             <Box
               sx={{
                 display: "flex",
@@ -49,7 +126,7 @@ const CheckOut = () => {
                 <TextField
                   required
                   id="first-name"
-                  name="First name"
+                  name="first-name"
                   label="First name"
                   type="text"
                   fullWidth={true}
@@ -57,7 +134,7 @@ const CheckOut = () => {
                 <TextField
                   required
                   id="last-name"
-                  name="last name"
+                  name="last-name"
                   label="Last name"
                   type="text"
                   fullWidth={true}
