@@ -15,7 +15,6 @@ import clothes_model1 from "../../../assets/image/clothes_model1.png";
 import clothes_model2 from "../../../assets/image/clothes_model2.png";
 import bgHome from "../../../assets/image/home.png";
 
-import "../../../assets/scss/common.scss";
 import styles from "./home.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
 
@@ -181,7 +180,7 @@ const Home = () => {
               width: "100px",
               height: "3px",
               border: "none",
-              background: "#78bcc4",
+              background: "var(--mama-blue)",
               marginTop: "15px",
             }}
           />
