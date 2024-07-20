@@ -1,7 +1,7 @@
 @import "../../../assets/scss/common.scss";
 
 .headerBgImage {
-  background-color: $color-dark-gray;
+  background-color: var(--color-dark-gray);
   background-blend-mode: multiply;
   background-position: center;
   background-size: cover;
@@ -9,9 +9,9 @@
   background-attachment: fixed;
 
   .gridContainer {
-    display: grid;
-    grid-template-columns: 520px 150px 520px;
+    display: flex;
     justify-content: center;
+    padding: 0 30px;
   }
 
   .header {
@@ -20,13 +20,13 @@
     z-index: 100000;
     width: 100%;
     height: 90px;
-    background-color: $color-dark-blue;
+    background-color: var(--color-dark-blue);
 
     .headerContentFirst {
+      width: 50%;
       .menu {
         height: 100%;
-        color: $color-white;
-        // column-gap: 30px;
+        color: var(--color-white);
         font-weight: 500;
         font-size: 16px;
         list-style-type: none;
@@ -34,14 +34,14 @@
     }
 
     .headerContentSecond {
-      width: 100%;
-      color: $color-white;
+      color: var(--color-white);
     }
 
     .headerContentThird {
+      width: 50%;
       column-gap: 5px;
       .iconColor {
-        color: $color-white;
+        color: var(--color-white);
       }
       .iconSize {
         font-size: 25px;
@@ -49,13 +49,13 @@
     }
 
     .itemHeader {
-      color: $color-white;
+      color: var(--color-white);
       width: 100px;
       height: 100%;
       cursor: pointer;
       text-decoration: none;
       &.active {
-        background-color: $color-black;
+        background-color: var(--color-black);
       }
     }
 

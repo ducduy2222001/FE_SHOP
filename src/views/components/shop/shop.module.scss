@@ -10,15 +10,15 @@
     width: 100%;
     gap: 20px;
     padding: 20px 0;
-    border-bottom: 1px solid $color-black;
-    border-top: 1px solid $color-black;
+    border-bottom: 1px solid var(--color-black);
+    border-top: 1px solid var(--color-black);
   }
 
   .btnFilter {
     height: 40px;
     padding: 0 20px;
-    color: $color-white;
-    background-color: $color-dark-blue;
+    color: var(--color-white);
+    background-color: var(--color-dark-blue);
     border: none;
   }
 
@@ -48,8 +48,8 @@
       .btnCard {
         width: 100px;
         padding: 10px 0;
-        background: $color-black;
-        color: $color-white;
+        background: var(--color-black);
+        color: var(--color-white);
         border: none;
         cursor: pointer;
       }
@@ -63,6 +63,6 @@
 
 .contentShop {
   height: 100vh;
-  color: $color-white;
+  color: var(--color-white);
   margin-bottom: 50px;
 }

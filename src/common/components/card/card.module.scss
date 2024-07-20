@@ -22,8 +22,8 @@
     display: none;
 
     .iConButton {
-      background-color: $color-gray-white;
-      color: $color-black;
+      background-color: var(--color-gray-white);
+      color: var(--color-black);
       opacity: 0.5;
     }
 

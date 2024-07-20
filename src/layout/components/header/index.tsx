@@ -17,25 +17,21 @@ const LIST_HOME = [
     id: 1,
     name: "Home",
     link: "/",
-    checked: true,
   },
   {
     id: 2,
     name: "Shop",
     link: "/shop",
-    checked: false,
   },
   {
     id: 3,
     name: "About US",
     link: "/about-us",
-    checked: false,
   },
   {
     id: 4,
     name: "Contact Us",
     link: "/contact-us",
-    checked: false,
   },
 ];
 
