@@ -7,8 +7,8 @@
   border-radius: unset !important;
 
   &:hover {
-    color: $color-black !important;
-    background-color: $color-white !important;
+    color: var(--color-black) !important;
+    background-color: var(--color-white) !important;
     border-color: unset !important;
   }
 }

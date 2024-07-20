@@ -11,14 +11,14 @@
 
   .containA {
     .btnSeeAll:hover {
-      color: $color-white !important;
-      background-color: $color-blue-music !important;
+      color: var(--color-white) !important;
+      background-color: var(--color-blue-music) !important;
     }
   }
 
   .containB {
     background-image: url(../../../assets/image/shoes1.jpg);
-    background-color: $color-dark-gray;
+    background-color: var(--color-dark-gray);
     background-blend-mode: multiply;
     background-position: center;
     background-size: cover;
@@ -29,7 +29,7 @@
 
     .titleImg {
       font-size: 40px;
-      color: $color-white;
+      color: var(--color-white);
       text-align: center;
       font-family: "Cormorant Garamond", serif;
       font-style: italic;
@@ -42,11 +42,11 @@
     height: auto;
 
     .btnViewCollection {
-      background-color: $color-black;
+      background-color: var(--color-black);
 
       &:hover {
-        background-color: $color-black !important;
-        color: $color-white !important;
+        background-color: var(--color-black) !important;
+        color: var(--color-white) !important;
       }
     }
   }
@@ -62,5 +62,5 @@
 
 .contentHome {
   height: 100vh;
-  color: $color-white;
+  color: var(--color-white);
 }

@@ -1,20 +1,18 @@
-// color
-$color-white: #ffffff;
-$color-black: #000000;
-$color-red: #f7444e;
-$color-dark-blue: #002c3e;
-$color-blue-music: #78bcc4;
-$color-gray-white: #f7f8f3;
-$color-dark-gray: #8d8d8d;
-
 :root {
-  --mama-blue: #78bcc4;
-}
+  // color
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-red: #f7444e;
+  --color-dark-blue: #002c3e;
+  --color-blue-music: #78bcc4;
+  --color-gray-white: #f7f8f3;
+  --color-dark-gray: #8d8d8d;
 
-// size
-$size-s: 14px;
-$size-m: 16px;
-$size-l: 18px;
+  // size
+  --size-s: 14px;
+  --size-m: 16px;
+  --size-l: 18px;
+}
 
 .widthScreen {
   width: 1190px;

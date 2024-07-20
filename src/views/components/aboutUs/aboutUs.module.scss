@@ -35,7 +35,7 @@
 
   .containerA {
     background-image: url(../../../assets/image/image2.png);
-    background-color: $color-dark-gray;
+    background-color: var(--color-dark-gray);
     background-blend-mode: multiply;
     background-position: center;
     background-size: cover;
@@ -48,6 +48,6 @@
 
 .contentAboutUs {
   height: 100vh;
-  color: $color-white;
+  color: var(--color-white);
   margin-bottom: 50px;
 }

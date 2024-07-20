@@ -1,6 +1,6 @@
 @import "../../../assets/scss/common.scss";
 
 .btnPayment:hover {
-  color: $color-white !important;
-  background-color: $color-blue-music !important;
+  color: var(--color-white) !important;
+  background-color: var(--color-blue-music) !important;
 }

@@ -5,7 +5,6 @@ import reportWebVitals from "./reportWebVitals";
 import routes from "./routes";
 
 import "./index.css";
-// import "./assets/scss/common.scss";
 
 const container = document.getElementById("root");
 const root = createRoot(container!);

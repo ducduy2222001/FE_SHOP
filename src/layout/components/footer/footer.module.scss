@@ -1,7 +1,7 @@
 @import "../../../assets/scss/common.scss";
 
 .footer {
-  background-color: $color-gray-white;
+  background-color: var(--color-gray-white);
   padding: 60px 0px;
 
   .introduction {
@@ -12,7 +12,7 @@
   .introduction,
   .customerPolicy,
   .socialMedia {
-    font-size: $size-s;
+    font-size: --size-s;
     gap: 10px;
   }
 
