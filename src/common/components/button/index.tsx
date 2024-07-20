@@ -1,8 +1,6 @@
 import React from "react";
 import { Button } from "@mui/material";
 
-import "../../../assets/scss/common.scss";
-
 import styles from "./buttonCustom.module.scss";
 
 export const ButtonCustom = (props: any) => {

@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import routes from "./routes";
 
+import "./assets/scss/common.scss";
 import "./index.css";
 
 const container = document.getElementById("root");
