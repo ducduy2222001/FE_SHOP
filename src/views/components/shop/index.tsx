@@ -15,7 +15,6 @@ import CardItem from "../../../common/components/card";
 
 import bgShop from "../../../assets/image/shop.png";
 
-import "../../../assets/scss/common.scss";
 import styles from "./shop.module.scss";
 
 interface ShowCardProps {
