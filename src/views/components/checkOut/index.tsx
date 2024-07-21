@@ -46,7 +46,7 @@ const CheckOut = () => {
       >
         <h1>Checkout</h1>
         <Box
-          borderTop="4px solid #78bcc4"
+          borderTop="4px solid var(--color-blue-music)"
           padding="20px"
           display={"flex"}
           gap={2}
@@ -58,7 +58,7 @@ const CheckOut = () => {
           <div style={{ fontWeight: "500" }}>
             <span>Do you have a promo code?</span>
             <span
-              style={{ color: "#78bcc4", cursor: "pointer" }}
+              style={{ color: "var(--color-blue-music)", cursor: "pointer" }}
               onClick={() => {
                 setOpen(!open);
               }}
@@ -94,8 +94,8 @@ const CheckOut = () => {
                   style={{
                     height: "56px",
                     padding: "10px 20px",
-                    color: "#78bcc4",
-                    borderColor: "#78bcc4",
+                    color: "var(--color-blue-music)",
+                    borderColor: "var(--color-blue-music)",
                   }}
                 />
               </Box>
@@ -108,7 +108,7 @@ const CheckOut = () => {
               variant="h6"
               component={"div"}
               fontSize={"20px"}
-              borderBottom={"1px solid #ccc"}
+              borderBottom={"1px solid var(--color-gray)"}
               paddingBottom={"10px"}
               marginBottom={"30px"}
             >
@@ -187,8 +187,8 @@ const CheckOut = () => {
             </Box>
           </Grid>
           <Grid item xs>
-            <Paper sx={{ border: "1px solid #78bcc4" }}>
-              <Box borderBottom="1px solid #ccc">
+            <Paper sx={{ border: "1px solid var(--color-blue-music)" }}>
+              <Box borderBottom="1px solid var(--color-gray)">
                 <Typography
                   variant="h4"
                   fontWeight={"600"}
@@ -204,19 +204,19 @@ const CheckOut = () => {
                   textLast="Estimated price"
                   fontSize={"18px"}
                   fontWeight={"600"}
-                  borderBottom={"1px solid #ccc"}
+                  borderBottom={"1px solid var(--color-gray)"}
                 />
                 <RowOrder
                   textFirst="Short - White x 2 - XL"
                   textLast="$500"
                   fontSize={"16px"}
-                  borderBottom={"1px solid #ccc"}
+                  borderBottom={"1px solid var(--color-gray)"}
                 />
                 <RowOrder
                   textFirst="Short - White x 2 - XL"
                   textLast="$500"
                   fontSize={"16px"}
-                  borderBottom={"1px solid #ccc"}
+                  borderBottom={"1px solid var(--color-gray)"}
                 />
 
                 <RowOrder
@@ -235,8 +235,8 @@ const CheckOut = () => {
                     style={{
                       width: "100%",
                       padding: "10px 30px",
-                      color: "#78bcc4",
-                      borderColor: "#78bcc4",
+                      color: "var(--color-blue-music)",
+                      borderColor: "var(--color-blue-music)",
                     }}
                   />
                 </Box>

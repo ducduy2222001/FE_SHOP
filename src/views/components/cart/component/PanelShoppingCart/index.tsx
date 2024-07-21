@@ -24,7 +24,11 @@ const CheckOutAndView = () => {
       justifyContent={"space-evenly"}
       className={styles.Panel}
     >
-      <Grid item borderBottom="1px solid #ccc" borderTop="1px solid #ccc">
+      <Grid
+        item
+        borderBottom="1px solid var(--color-gray)"
+        borderTop="1px solid var(--color-gray)"
+      >
         <Box
           display={"flex"}
           flexDirection={"row"}
@@ -60,8 +64,8 @@ const CheckOutAndView = () => {
           text="VIEW CART"
           style={{
             padding: "10px 30px",
-            color: "#78bcc4",
-            borderColor: "#78bcc4",
+            color: "var(--color-blue-music)",
+            borderColor: "var(--color-blue-music)",
           }}
         />
         <ButtonCustom
@@ -73,8 +77,8 @@ const CheckOutAndView = () => {
           text="CHECKOUT"
           style={{
             padding: "10px 30px",
-            color: "#78bcc4",
-            borderColor: "#78bcc4",
+            color: "var(--color-blue-music)",
+            borderColor: "var(--color-blue-music)",
           }}
         />
       </Grid>

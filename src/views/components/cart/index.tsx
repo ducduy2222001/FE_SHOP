@@ -3,7 +3,7 @@ import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import { ConfigProvider, Table, TableColumnsType } from "antd";
 import { withLayout } from "../../../layout";
 
-import imageProduct from "../../../assets/image/image1.png";
+import { contactUs } from "../../../assets/image";
 
 import styles from "./cart.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
@@ -49,7 +49,7 @@ const data: DataType[] = [];
 for (let i = 1; i < 20; i++) {
   data.push({
     key: i,
-    image: <img src={imageProduct} style={{ width: "70px", height: "70px" }} />,
+    image: <img src={contactUs} style={{ width: "70px", height: "70px" }} />,
     product: `Edward King ${i}`,
     price: 32,
     quality: i * 70,
@@ -88,7 +88,7 @@ export const Cart = () => {
         <Grid container direction={"row"} justifyContent={"right"}>
           <Grid item xs={6}>
             <Paper sx={{ border: "1px solid #78bcc4" }}>
-              <Box borderBottom="1px solid #ccc">
+              <Box borderBottom="1px solid var(--color-gray)">
                 <Typography
                   variant="h4"
                   fontWeight={"600"}
@@ -135,8 +135,8 @@ export const Cart = () => {
                     style={{
                       width: "100%",
                       padding: "10px 30px",
-                      color: "#78bcc4",
-                      borderColor: "#78bcc4",
+                      color: "var(--color-blue-music)",
+                      borderColor: "var(--color-blue-music)",
                     }}
                   />
                 </Box>

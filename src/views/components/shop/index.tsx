@@ -13,7 +13,7 @@ import { withLayout } from "../../../layout";
 import { SIZE, COLOR, TYPE_FILTER, LIST_BTN_FILTER } from "./constant";
 import CardItem from "../../../common/components/card";
 
-import bgShop from "../../../assets/image/shop.png";
+import { shop } from "../../../assets/image";
 
 import styles from "./shop.module.scss";
 
@@ -309,8 +309,8 @@ const Shop = () => {
                 <Chip
                   size="medium"
                   sx={{
-                    background: "#78bcc4",
-                    color: "#fff",
+                    background: "var(--color-blue-music)",
+                    color: "var(--color-white)",
                     fontSize: "16px",
                     height: "40px",
                     width: "120px",
@@ -327,8 +327,8 @@ const Shop = () => {
                   key={index}
                   size="medium"
                   sx={{
-                    background: "#78bcc4",
-                    color: "#fff",
+                    background: "var(--color-blue-music)",
+                    color: "var(--color-white)",
                     fontSize: "16px",
                     height: "40px",
                     maxWidth: "100px",
@@ -345,8 +345,8 @@ const Shop = () => {
                   key={index}
                   size="medium"
                   sx={{
-                    background: "#78bcc4",
-                    color: "#fff",
+                    background: "var(--color-blue-music)",
+                    color: "var(--color-white)",
                     fontSize: "16px",
                     height: "40px",
                     maxWidth: "100px",
@@ -400,7 +400,7 @@ const ContentShop = () => {
 };
 
 const headerProps = {
-  image: bgShop,
+  image: shop,
   element: <ContentShop />,
 };
 
