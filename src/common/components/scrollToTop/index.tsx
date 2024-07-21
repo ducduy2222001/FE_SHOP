@@ -8,10 +8,10 @@ const StyledIconButton = styled(IconButton)(({ theme }: { theme: Theme }) => ({
   bottom: theme.spacing(3),
   right: theme.spacing(3),
   zIndex: 100000,
-  background: "#ebf5ff",
+  background: "var(--color-black)",
 
   "&:hover": {
-    backgroundColor: "#ebf5ff",
+    backgroundColor: "var(--color-black)",
   },
 }));
 
@@ -37,7 +37,11 @@ const ScrollToTop: React.FC = () => {
           aria-label="scroll to top"
         >
           <IconButton
-            children={<NorthRounded sx={{ fontSize: "30px", color: "#000" }} />}
+            children={
+              <NorthRounded
+                sx={{ fontSize: "30px", color: "var(--color-white)" }}
+              />
+            }
             disableRipple={true}
             size="medium"
             color="success"

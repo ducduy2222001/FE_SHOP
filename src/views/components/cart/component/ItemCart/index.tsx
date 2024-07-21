@@ -2,7 +2,7 @@ import React from "react";
 import { HighlightOffOutlined } from "@mui/icons-material";
 import { Grid, IconButton, Paper } from "@mui/material";
 
-import image from "../../../../../assets/image/clothes_model2.png";
+import { modelMen } from "../../../../../assets/image";
 
 const ItemCart = () => {
   return (
@@ -11,7 +11,7 @@ const ItemCart = () => {
         <Grid item container direction="row" spacing={2} xs={8}>
           <Grid item sx={{ height: "130px" }}>
             <img
-              src={image}
+              src={modelMen}
               alt=""
               style={{
                 width: "100px",

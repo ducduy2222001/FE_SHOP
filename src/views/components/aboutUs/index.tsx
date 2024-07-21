@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@mui/material";
 import { withLayout } from "../../../layout";
 
-import bgAboutUs from "../../../assets/image/aboutus.jpg";
+import { aboutUs1 } from "../../../assets/image";
 
 import styles from "./aboutUs.module.scss";
 
@@ -139,7 +139,7 @@ const ContentAbout = () => {
 };
 
 const headerProps = {
-  image: bgAboutUs,
+  image: aboutUs1,
   element: <ContentAbout />,
 };
 

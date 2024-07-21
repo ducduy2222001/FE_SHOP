@@ -10,10 +10,7 @@ import { withLayout } from "../../../layout";
 import CardItem from "../../../common/components/card";
 import SwiperReview from "../../../common/components/swiperReview";
 
-import shoes2 from "../../../assets/image/shoes2.png";
-import clothes_model1 from "../../../assets/image/clothes_model1.png";
-import clothes_model2 from "../../../assets/image/clothes_model2.png";
-import bgHome from "../../../assets/image/home.png";
+import { shoes2, modelWomen, modelMen, home } from "../../../assets/image";
 
 import styles from "./home.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
@@ -217,8 +214,8 @@ const Home = () => {
               text="REGISTER NOW"
               style={{
                 padding: "20px 40px",
-                borderColor: "#ffffff",
-                color: "#ffffff",
+                borderColor: "var(--color-white)",
+                color: "var(--color-white)",
               }}
             />
           </div>
@@ -289,8 +286,8 @@ const ContentHome = () => {
           text="REGISTER NOW"
           style={{
             padding: "20px 40px",
-            borderColor: "#ffffff",
-            color: "#ffffff",
+            borderColor: "var(--color-white)",
+            color: "var(--color-white)",
           }}
         />
       </div>
@@ -299,7 +296,7 @@ const ContentHome = () => {
 };
 
 const headerProps = {
-  image: bgHome,
+  image: home,
   element: <ContentHome />,
 };
 
@@ -358,8 +355,8 @@ const ListCard = (props: any) => {
             className={`${styles.btnSeeAll}`}
             style={{
               padding: "15px 35px",
-              color: "#78bcc4",
-              borderColor: "#78bcc4",
+              color: "var(--color-blue-music)",
+              borderColor: "var(--color-blue-music)",
               marginTop: "30px",
             }}
           />
@@ -393,7 +390,7 @@ const Collection = (props: { gender: boolean }) => {
         }}
       >
         <img
-          src={gender ? clothes_model2 : clothes_model1}
+          src={gender ? modelMen : modelWomen}
           alt=""
           style={{
             width: "500px",
@@ -451,8 +448,8 @@ const Collection = (props: { gender: boolean }) => {
           text="VIEW COLLECTIONS"
           style={{
             padding: "20px 40px",
-            borderColor: "#ffffff",
-            color: "#ffffff",
+            borderColor: "var(--color-white)",
+            color: "var(--color-white)",
             marginTop: "20px",
           }}
         />

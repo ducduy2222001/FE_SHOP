@@ -34,13 +34,15 @@ const Panel = (props) => {
             justifyContent="space-between"
             alignItems="center"
             padding={2}
-            borderBottom="1px solid #ccc"
+            borderBottom="1px solid var(--color-gray)"
           >
             <Typography variant="h6" component="span">
               {title}
             </Typography>
             <IconButton onClick={toggleDrawer(false)}>
-              <CloseIcon sx={{ color: "#000", fontSize: "25px" }} />
+              <CloseIcon
+                sx={{ color: "var(--color-black)", fontSize: "25px" }}
+              />
             </IconButton>
           </Box>
           {componentBody}

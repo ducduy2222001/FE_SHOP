@@ -1,10 +1,10 @@
 import React from "react";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Grid, TextField, Typography } from "@mui/material";
 import { withLayout } from "../../../layout";
 import Map from "../../../common/components/mapLeaflet";
 import { DATA_SERVICE, ServiceOfShop } from "../home";
 
-import bgContactUs from "../../../assets/image/image1.png";
+import { contactUs } from "../../../assets/image";
 
 import styles from "./contactUs.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
@@ -153,7 +153,7 @@ const ContentAbout = () => {
 };
 
 const headerProps = {
-  image: bgContactUs,
+  image: contactUs,
   element: <ContentAbout />,
 };
 
