@@ -7,38 +7,39 @@ import FavoriteProduct from "./views/components/favoriteProduct";
 import Cart from "./views/components/cart";
 import ErrorPage from "./views/components/errorPage";
 import CheckOut from "./views/components/checkOut";
+import { routerPaths } from "./tool";
 
 const routes = [
   {
-    path: "/",
+    path: routerPaths.home,
     element: <Home />,
   },
   {
-    path: "/shop",
+    path: routerPaths.shop,
     element: <Shop />,
   },
   {
-    path: "/about-us",
+    path: routerPaths.aboutUs,
     element: <AboutUs />,
   },
   {
-    path: "/contact-us",
+    path: routerPaths.contactUs,
     element: <ContactUs />,
   },
   {
-    path: "/favorite-product",
+    path: routerPaths.favoriteProduct,
     element: <FavoriteProduct />,
   },
   {
-    path: "/cart",
+    path: routerPaths.cart,
     element: <Cart />,
   },
   {
-    path: "/checkout",
+    path: routerPaths.checkout,
     element: <CheckOut />,
   },
   {
-    path: "*",
+    path: routerPaths.errorPage,
     element: <ErrorPage />,
   },
 ];
