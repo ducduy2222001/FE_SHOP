@@ -107,7 +107,7 @@ const ContactUs = () => {
       </div>
       <Map />
       <div
-        className="padding-layout"
+        className="widthScreen"
         style={{ paddingTop: "50px", width: "100%" }}
       >
         <ListServiceOfShop />

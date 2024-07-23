@@ -11,7 +11,7 @@ const AboutUs = () => {
     <div
       className={`${styles.aboutUs} flex flex-direction-column flex-align-center`}
     >
-      <div className="padding-layout">
+      <div className="widthScreen">
         <Grid container gap={10} sx={{ padding: "50px 0px" }}>
           <Grid
             container
@@ -79,7 +79,7 @@ const AboutUs = () => {
       <div
         className={`${styles.containerA} flex flex-direction-column flex-justify-center flex-align-center `}
       >
-        <div className="padding-layout">
+        <div className="widthScreen">
           <Grid container sx={{ color: "white" }}>
             <Grid item xs={5}>
               <div className={`${styles.storyContainer} `}>

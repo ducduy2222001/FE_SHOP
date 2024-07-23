@@ -12,6 +12,7 @@ export const ButtonCustom = (props: any) => {
       className={`${styles.btn} ${className}`}
       sx={style}
       onClick={onClick}
+      {...props}
     >
       {text}
     </Button>

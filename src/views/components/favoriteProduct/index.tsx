@@ -10,7 +10,7 @@ const FavoriteProduct = () => {
     <div
       className={`${styles.favoriteProduct} flex flex-direction-column flex-align-center`}
     >
-      <div className="padding-layout">
+      <div className="widthScreen">
         <Grid container gap={5} sx={{ margin: "50px 0px" }}>
           <Grid
             container

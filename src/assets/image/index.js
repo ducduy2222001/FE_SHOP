@@ -7,6 +7,7 @@ import modelWomen from "./clothes_model1.png";
 import modelMen from "./clothes_model2.png";
 import shoes1 from "./shoes1.jpg";
 import shoes2 from "./shoes2.png";
+import bgLogin from "./bgLogin.jpg";
 
 export {
   aboutUs1,
@@ -18,4 +19,5 @@ export {
   shop,
   shoes1,
   shoes2,
+  bgLogin,
 };

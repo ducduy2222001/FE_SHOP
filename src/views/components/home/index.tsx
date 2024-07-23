@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import { withLayout } from "../../../layout";
 import CardItem from "../../../common/components/card";
@@ -9,6 +10,7 @@ import { shoes2, modelWomen, modelMen, home } from "../../../assets/image";
 
 import styles from "./home.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
+import axiosClient from "../../../common/api/axiosClient";
 
 const DATA_CARDITEM = [
   {
@@ -121,7 +123,25 @@ const CARDITEM_SWIPER = [
   },
 ];
 
+const endpoints = {
+  user: {
+    getUser: "/user/14",
+  },
+};
+
+export const getUser = () => {
+  return axiosClient().get(endpoints.user.getUser);
+};
+
 const Home = () => {
+  // const navigation = useNavigate();
+  // React.useEffect(() => {
+  //   getUser().catch((err) => {
+  //     if (err.response.status === 401) {
+  //       navigation("/login");
+  //     }
+  //   });
+  // }, []);
   return (
     <div
       className={`${styles.home} flex flex-direction-column flex-align-center`}
@@ -129,7 +149,7 @@ const Home = () => {
       <ListCard data={DATA_CARDITEM} sale={false} />
       <Collection gender={false} />
       <div
-        className={`${styles.containD}  flex flex-direction-column flex-align-flex-start`}
+        className={`${styles.containD} flex flex-direction-column flex-align-flex-start`}
       >
         <div
           style={{ width: "100%" }}
@@ -185,7 +205,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className={`${styles.containC} padding-layout`}>
+      <div className={`${styles.containC} widthScreen `}>
         <ListServiceOfShop />
       </div>
     </div>
@@ -259,7 +279,7 @@ export default withLayout(Home, headerProps);
 const ListCard = (props: any) => {
   const { data, sale } = props;
   return (
-    <div className={`${styles.containA} padding-layout`}>
+    <div className={`${styles.containA} widthScreen`}>
       <Grid container gap={7}>
         <Grid item justifyContent="space-between" md={12}>
           <div
@@ -325,7 +345,7 @@ const Collection = (props: { gender: boolean }) => {
     <div
       className={`${styles.containC} ${
         gender ? styles.man : styles.women
-      } padding-layout flex flex-align-center`}
+      } widthScreen flex flex-align-center`}
     >
       <div
         className="flex flex-direction-row flex-align-center flex-justify-center"
