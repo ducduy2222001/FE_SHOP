@@ -68,7 +68,7 @@ export const Cart = () => {
       padding={"50px 0"}
     >
       <div
-        className="padding-layout flex flex-direction-column"
+        className="widthScreen flex flex-direction-column"
         style={{ rowGap: "30px", width: "100%" }}
       >
         <h1>Cart</h1>

@@ -208,7 +208,7 @@ const Shop = () => {
     <div
       className={`${styles.shop}  flex flex-direction-column flex-align-center`}
     >
-      <div className="padding-layout">
+      <div className="widthScreen">
         <Grid container spacing={4}>
           <Grid
             item

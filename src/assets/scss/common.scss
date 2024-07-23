@@ -9,11 +9,17 @@
   --color-dark-gray: #8d8d8d;
   --color-gray: #cccccc;
   --color-light-grey: #ebf5ff;
+  --color-bg-login1: #54909e;
+  --color-bg-login2: #1d4d5f;
 
   // size
   --size-s: 14px;
   --size-m: 16px;
   --size-l: 18px;
+}
+
+.widthScreen {
+  max-width: 1192px;
 }
 
 .padding-layout {
