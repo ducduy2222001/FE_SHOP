@@ -21,6 +21,7 @@
 
 .gridContainer {
   display: grid;
-  grid-template-columns: 400px 264px 264px 264px;
+  grid-template-columns: repeat(4, 1fr);
   justify-content: center;
+  padding: 0 30px;
 }

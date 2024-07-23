@@ -57,67 +57,69 @@ const SOCIALMEDIA = [
 
 const Footer = () => {
   return (
-    <footer className={`${styles.footer} ${styles.gridContainer}`}>
-      <div
-        className={`${styles.introduction} flex flex-direction-column flex-align-flex-start`}
-      >
-        <Logo />
-        <h3 style={{ fontSize: "20px" }}>{TITLES.introduction}</h3>
-        {INTRODUCTION.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="text-align-left flex flex-direction-column font-m"
-            >
-              {item.content}
-            </div>
-          );
-        })}
-      </div>
-      <div
-        className={`${styles.information} flex flex-direction-column flex-align-flex-start`}
-      >
-        <h3 style={{ fontSize: "20px" }}>{TITLES.information}</h3>
-        {INFORMATION.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="text-align-left flex flex-direction-column font-m"
-            >
-              {item.address}
-            </div>
-          );
-        })}
-      </div>
-      <div
-        className={`${styles.customerPolicy} flex flex-direction-column flex-align-flex-start`}
-      >
-        <h3 style={{ fontSize: "20px" }}>{TITLES.customerPolicy}</h3>
-        {CUSTOMERPOLICY.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="text-align-left flex flex-direction-column font-m"
-            >
-              {item.policy}
-            </div>
-          );
-        })}
-      </div>
-      <div
-        className={`${styles.socialMedia} flex flex-direction-column flex-align-flex-start`}
-      >
-        <h3 style={{ fontSize: "20px" }}>{TITLES.socialMedia}</h3>
-        {SOCIALMEDIA.map((item) => {
-          return (
-            <div
-              key={item.id}
-              className="text-align-left flex flex-direction-column font-m"
-            >
-              {item.social}
-            </div>
-          );
-        })}
+    <footer className={`${styles.footer} `}>
+      <div className={` ${styles.gridContainer}`}>
+        <div
+          className={`${styles.introduction} flex flex-direction-column flex-align-flex-start`}
+        >
+          <Logo />
+          <h3 style={{ fontSize: "20px" }}>{TITLES.introduction}</h3>
+          {INTRODUCTION.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className="text-align-left flex flex-direction-column font-m"
+              >
+                {item.content}
+              </div>
+            );
+          })}
+        </div>
+        <div
+          className={`${styles.information} flex flex-direction-column flex-align-flex-start`}
+        >
+          <h3 style={{ fontSize: "20px" }}>{TITLES.information}</h3>
+          {INFORMATION.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className="text-align-left flex flex-direction-column font-m"
+              >
+                {item.address}
+              </div>
+            );
+          })}
+        </div>
+        <div
+          className={`${styles.customerPolicy} flex flex-direction-column flex-align-flex-start`}
+        >
+          <h3 style={{ fontSize: "20px" }}>{TITLES.customerPolicy}</h3>
+          {CUSTOMERPOLICY.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className="text-align-left flex flex-direction-column font-m"
+              >
+                {item.policy}
+              </div>
+            );
+          })}
+        </div>
+        <div
+          className={`${styles.socialMedia} flex flex-direction-column flex-align-flex-start`}
+        >
+          <h3 style={{ fontSize: "20px" }}>{TITLES.socialMedia}</h3>
+          {SOCIALMEDIA.map((item) => {
+            return (
+              <div
+                key={item.id}
+                className="text-align-left flex flex-direction-column font-m"
+              >
+                {item.social}
+              </div>
+            );
+          })}
+        </div>
       </div>
     </footer>
   );

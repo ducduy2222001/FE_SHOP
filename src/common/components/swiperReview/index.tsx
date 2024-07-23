@@ -20,8 +20,9 @@ interface SwiperReviewProps {
 
 const SwiperReview = ({ CARDITEM_SWIPER }: SwiperReviewProps) => {
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "800px" }}>
       <Swiper
+        width={1192}
         slidesPerView={6}
         spaceBetween={10}
         grabCursor={true}

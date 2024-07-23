@@ -1,50 +1,14 @@
 import React from "react";
 import { Grid } from "@mui/material";
-import {
-  LockOutlined,
-  LocalShippingOutlined,
-  AutorenewOutlined,
-  ShareLocationOutlined,
-} from "@mui/icons-material";
 import { withLayout } from "../../../layout";
 import CardItem from "../../../common/components/card";
 import SwiperReview from "../../../common/components/swiperReview";
+import ListServiceOfShop from "../../../common/components/listServiceOfShop";
 
 import { shoes2, modelWomen, modelMen, home } from "../../../assets/image";
 
 import styles from "./home.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
-
-export const DATA_SERVICE = [
-  {
-    id: 1,
-    icon: <LockOutlined style={{ fontSize: "45px" }} />,
-    title: "Secure Payments",
-    content:
-      "Shop with confidence knowing that your transactions are safeguarded.",
-  },
-  {
-    id: 2,
-    icon: <LocalShippingOutlined style={{ fontSize: "45px" }} />,
-    title: "Free Shipping",
-    content:
-      "Shopping with no extra charges – savor the liberty of complimentary shipping on every order.",
-  },
-  {
-    id: 1,
-    icon: <AutorenewOutlined style={{ fontSize: "45px" }} />,
-    title: "Easy Returns",
-    content:
-      "With our hassle-free Easy Returns, changing your mind has never been more convenient.",
-  },
-  {
-    id: 1,
-    icon: <ShareLocationOutlined style={{ fontSize: "45px" }} />,
-    title: "Order Tracking",
-    content:
-      "Stay in the loop with our Order Tracking feature – from checkout to your doorstep.",
-  },
-];
 
 const DATA_CARDITEM = [
   {
@@ -165,7 +129,7 @@ const Home = () => {
       <ListCard data={DATA_CARDITEM} sale={false} />
       <Collection gender={false} />
       <div
-        className={`${styles.containD} widthScreen flex flex-direction-column flex-align-flex-start`}
+        className={`${styles.containD}  flex flex-direction-column flex-align-flex-start`}
       >
         <div
           style={{ width: "100%" }}
@@ -177,7 +141,7 @@ const Home = () => {
               width: "100px",
               height: "3px",
               border: "none",
-              background: "var(--mama-blue)",
+              background: "var(--color-blue-music)",
               marginTop: "15px",
             }}
           />
@@ -190,7 +154,7 @@ const Home = () => {
         className={`${styles.containB} flex flex-direction-column flex-align-center flex-justify-center`}
       >
         <div
-          className="flex flex-direction-column flex-align-flex-end widthScreen"
+          className="flex flex-direction-column flex-align-flex-end "
           style={{ gap: "20px", margin: "100px 0" }}
         >
           <img
@@ -221,18 +185,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className={`${styles.containC}`}>
-        <div className="widthScreen flex flex-align-center flex-justify-space-between">
-          {DATA_SERVICE.map((item) => {
-            return (
-              <ServiceOfShop
-                icon={item.icon}
-                title={item.title}
-                content={item.content}
-              />
-            );
-          })}
-        </div>
+      <div className={`${styles.containC} padding-layout`}>
+        <ListServiceOfShop />
       </div>
     </div>
   );
@@ -272,7 +226,6 @@ const ContentHome = () => {
           style={{
             fontFamily: "cursive",
             fontSize: "14px",
-            width: "750px",
             fontWeight: "500",
             textAlign: "center",
           }}
@@ -306,7 +259,7 @@ export default withLayout(Home, headerProps);
 const ListCard = (props: any) => {
   const { data, sale } = props;
   return (
-    <div className={`${styles.containA} widthScreen`}>
+    <div className={`${styles.containA} padding-layout`}>
       <Grid container gap={7}>
         <Grid item justifyContent="space-between" md={12}>
           <div
@@ -372,7 +325,7 @@ const Collection = (props: { gender: boolean }) => {
     <div
       className={`${styles.containC} ${
         gender ? styles.man : styles.women
-      } widthScreen flex flex-align-center`}
+      } padding-layout flex flex-align-center`}
     >
       <div
         className="flex flex-direction-row flex-align-center flex-justify-center"
@@ -454,24 +407,6 @@ const Collection = (props: { gender: boolean }) => {
           }}
         />
       </div>
-    </div>
-  );
-};
-
-export const ServiceOfShop = (props: any) => {
-  const { title, content, icon } = props;
-  return (
-    <div
-      className="flex flex-direction-column flex-align-center"
-      style={{
-        width: "250px",
-        gap: "15px",
-        height: "200px",
-      }}
-    >
-      <span>{icon}</span>
-      <h2 style={{ fontFamily: "serif", fontStyle: "italic" }}>{title}</h2>
-      <span style={{ textAlign: "center" }}>{content}</span>
     </div>
   );
 };

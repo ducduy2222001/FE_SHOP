@@ -1,13 +1,12 @@
 import React, { ReactNode } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
 import { ConfigProvider, Table, TableColumnsType } from "antd";
 import { withLayout } from "../../../layout";
+import { ButtonCustom } from "../../../common/components/button";
 
 import { contactUs } from "../../../assets/image";
-
 import styles from "./cart.module.scss";
-import { ButtonCustom } from "../../../common/components/button";
-import { useNavigate } from "react-router-dom";
 interface DataType {
   key: React.Key;
   image: ReactNode;
@@ -69,8 +68,8 @@ export const Cart = () => {
       padding={"50px 0"}
     >
       <div
-        className="widthScreen flex flex-direction-column"
-        style={{ rowGap: "30px" }}
+        className="padding-layout flex flex-direction-column"
+        style={{ rowGap: "30px", width: "100%" }}
       >
         <h1>Cart</h1>
         <Paper>

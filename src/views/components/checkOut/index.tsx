@@ -41,8 +41,8 @@ const CheckOut = () => {
       padding={"50px 0"}
     >
       <div
-        className="widthScreen flex flex-direction-column"
-        style={{ gap: "20px" }}
+        className="padding-layout flex flex-direction-column"
+        style={{ gap: "20px", width: "100%" }}
       >
         <h1>Checkout</h1>
         <Box
