@@ -7,6 +7,7 @@ import FavoriteProduct from "./views/components/favoriteProduct";
 import Cart from "./views/components/cart";
 import ErrorPage from "./views/components/errorPage";
 import CheckOut from "./views/components/checkOut";
+import Login from "./views/components/auth/Login";
 import { routerPaths } from "./tool";
 
 const routes = [
@@ -38,6 +39,7 @@ const routes = [
     path: routerPaths.checkout,
     element: <CheckOut />,
   },
+  { path: routerPaths.login, element: <Login /> },
   {
     path: routerPaths.errorPage,
     element: <ErrorPage />,

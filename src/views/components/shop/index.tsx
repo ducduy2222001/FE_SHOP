@@ -208,7 +208,7 @@ const Shop = () => {
     <div
       className={`${styles.shop}  flex flex-direction-column flex-align-center`}
     >
-      <div className="widthScreen">
+      <div className="padding-layout">
         <Grid container spacing={4}>
           <Grid
             item
@@ -246,7 +246,7 @@ const Shop = () => {
             {showCard[id]?.status && (
               <Paper
                 elevation={3}
-                className={`${styles.listFilter} ${styles.widthScreen} flex flex-justify-flex-start flex-direction-column`}
+                className={`${styles.listFilter}  flex flex-justify-flex-start flex-direction-column`}
               >
                 <div
                   style={{ textAlign: "left", fontWeight: "600" }}

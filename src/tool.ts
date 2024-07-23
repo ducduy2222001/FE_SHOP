@@ -6,5 +6,6 @@ export const routerPaths = {
   favoriteProduct: "/favorite-product",
   cart: "/cart",
   checkout: "/checkout",
+  login: "/login",
   errorPage: "*",
 };

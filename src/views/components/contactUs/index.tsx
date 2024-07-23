@@ -2,8 +2,7 @@ import React from "react";
 import { Box, Grid, TextField, Typography } from "@mui/material";
 import { withLayout } from "../../../layout";
 import Map from "../../../common/components/mapLeaflet";
-import { DATA_SERVICE, ServiceOfShop } from "../home";
-
+import ListServiceOfShop from "../../../common/components/listServiceOfShop";
 import { contactUs } from "../../../assets/image";
 
 import styles from "./contactUs.module.scss";
@@ -25,7 +24,7 @@ const ContactUs = () => {
     <div
       className={`${styles.contactUs} flex flex-direction-column flex-align-center`}
     >
-      <div className="widthScreen">
+      <div className="">
         <Grid container gap={5} sx={{ padding: "50px 0px" }}>
           <Grid
             container
@@ -108,19 +107,10 @@ const ContactUs = () => {
       </div>
       <Map />
       <div
-        className="widthScreen flex flex-align-center flex-justify-space-between"
-        style={{ paddingTop: "50px" }}
+        className="padding-layout"
+        style={{ paddingTop: "50px", width: "100%" }}
       >
-        {DATA_SERVICE.map((item, index) => {
-          return (
-            <ServiceOfShop
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              content={item.content}
-            />
-          );
-        })}
+        <ListServiceOfShop />
       </div>
     </div>
   );
