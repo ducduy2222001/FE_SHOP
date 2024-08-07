@@ -1,16 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import { withLayout } from "../../../layout";
 import CardItem from "../../../common/components/card";
-import SwiperReview from "../../../common/components/swiperReview";
 import ListServiceOfShop from "../../../common/components/listServiceOfShop";
 
 import { shoes2, modelWomen, modelMen, home } from "../../../assets/image";
 
 import styles from "./home.module.scss";
 import { ButtonCustom } from "../../../common/components/button";
-import axiosClient from "../../../common/api/axiosClient";
 
 const DATA_CARDITEM = [
   {
@@ -66,82 +63,7 @@ const DATA_CARDITEMSALE = [
   },
 ];
 
-const CARDITEM_SWIPER = [
-  {
-    id: 1,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 2,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 3,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 4,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 5,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 6,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 7,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 8,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-  {
-    id: 9,
-    size: true,
-    badge: false,
-    image: "../../../assets/image/clothes.png",
-  },
-];
-
-const endpoints = {
-  user: {
-    getUser: "/user/14",
-  },
-};
-
-export const getUser = () => {
-  return axiosClient().get(endpoints.user.getUser);
-};
-
 const Home = () => {
-  // const navigation = useNavigate();
-  // React.useEffect(() => {
-  //   getUser().catch((err) => {
-  //     if (err.response.status === 401) {
-  //       navigation("/login");
-  //     }
-  //   });
-  // }, []);
   return (
     <div
       className={`${styles.home} flex flex-direction-column flex-align-center`}
@@ -150,24 +72,7 @@ const Home = () => {
       <Collection gender={false} />
       <div
         className={`${styles.containD} flex flex-direction-column flex-align-flex-start`}
-      >
-        <div
-          style={{ width: "100%" }}
-          className={`${styles.title} flex flex-direction-column flex-align-center`}
-        >
-          Trending Now
-          <hr
-            style={{
-              width: "100px",
-              height: "3px",
-              border: "none",
-              background: "var(--color-blue-music)",
-              marginTop: "15px",
-            }}
-          />
-        </div>
-        <SwiperReview CARDITEM_SWIPER={CARDITEM_SWIPER} />
-      </div>
+      ></div>
       <Collection gender={true} />
       <ListCard data={DATA_CARDITEMSALE} sale={true} />
       <div
