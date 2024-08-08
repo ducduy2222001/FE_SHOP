@@ -10,7 +10,7 @@
   .introduction,
   .customerPolicy,
   .socialMedia {
-    font-size: --size-s;
+    font-size: var(--size-s);
     gap: 10px;
   }
 
@@ -23,5 +23,5 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-content: center;
-  padding: 0 30px;
+  margin: 0 auto;
 }
