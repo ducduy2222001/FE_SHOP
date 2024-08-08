@@ -57,8 +57,8 @@ const SOCIALMEDIA = [
 
 const Footer = () => {
   return (
-    <footer className={`${styles.footer} `}>
-      <div className={` ${styles.gridContainer}`}>
+    <footer className={`${styles.footer}`}>
+      <div className={` ${styles.gridContainer} widthScreen`}>
         <div
           className={`${styles.introduction} flex flex-direction-column flex-align-flex-start`}
         >

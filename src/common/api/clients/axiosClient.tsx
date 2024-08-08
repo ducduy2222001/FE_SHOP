@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosError, AxiosResponse } from "axios";
-
+import { ERROR_CODE } from "../constant";
 const axiosClient = (token: string | null = null): AxiosInstance => {
   const headers = token
     ? {
@@ -33,13 +33,16 @@ const axiosClient = (token: string | null = null): AxiosInstance => {
     (error: AxiosError) => {
       try {
         const { response } = error;
-        if (response?.status === 401) {
-          localStorage.removeItem("ACCESS_TOKEN");
+        if (response) {
+          if (response?.status === ERROR_CODE.Authentication) {
+            window.location.href = "/login";
+            // } else if (response?.status === ERROR_CODE.NotFound) {
+            //   window.location.href = "*";
+          }
         }
       } catch (e) {
         console.error(e);
       }
-      throw error;
     },
   );
 

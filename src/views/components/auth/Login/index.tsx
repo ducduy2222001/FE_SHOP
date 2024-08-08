@@ -12,7 +12,8 @@ import {
 import { Google } from "@mui/icons-material";
 import { ButtonCustom } from "../../../../common/components/button";
 import { bgLogin } from "../../../../assets/image";
-import axiosClient from "../../../../common/api/axiosClient";
+
+import { authService } from "../../../../common/api/services";
 import styles from "./login.module.scss";
 
 const Login = () => {
@@ -28,11 +29,8 @@ const Login = () => {
     dataLogin.current = { username, password };
 
     try {
-      const response = await axiosClient().post(
-        "/auth/login",
-        dataLogin.current,
-      );
-      const { access_token } = response.data;
+      const response = await authService.login(dataLogin.current);
+      const { access_token } = response.data.data;
       localStorage.setItem("ACCESS_TOKEN", access_token);
       if (access_token) {
         navigation("/");

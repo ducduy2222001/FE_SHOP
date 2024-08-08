@@ -64,6 +64,14 @@ const DATA_CARDITEMSALE = [
 ];
 
 const Home = () => {
+  // const navigation = useNavigate();
+  // React.useEffect(() => {
+  //   getUser().catch((err) => {
+  //     if (err.response.status === 401) {
+  //       navigation("/login");
+  //     }
+  //   });
+  // }, []);
   return (
     <div
       className={`${styles.home} flex flex-direction-column flex-align-center`}
