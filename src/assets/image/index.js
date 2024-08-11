@@ -8,6 +8,7 @@ import modelMen from "./clothes_model2.png";
 import shoes1 from "./shoes1.jpg";
 import shoes2 from "./shoes2.png";
 import bgLogin from "./bgLogin.jpg";
+import emptyBox from "./empty-inbox.png";
 
 export {
   aboutUs1,
@@ -20,4 +21,5 @@ export {
   shoes1,
   shoes2,
   bgLogin,
+  emptyBox,
 };

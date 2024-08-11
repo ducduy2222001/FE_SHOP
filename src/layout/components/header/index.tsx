@@ -75,6 +75,9 @@ const Header = (props: any) => {
                             styles.itemHeader
                           } flex flex-align-center flex-justify-center`
                         }
+                        onClick={() => {
+                          window.scrollTo(0, 0);
+                        }}
                       >
                         {item.name}
                       </NavLink>
