@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   Box,
+  Breadcrumbs,
   Button,
   Checkbox,
   Chip,
@@ -11,11 +13,14 @@ import {
 } from "@mui/material";
 import { withLayout } from "../../../layout";
 import { SIZE, COLOR, TYPE_FILTER, LIST_BTN_FILTER } from "./constant";
+import NoResults from "../../../common/components/noResults";
 import CardItem from "../../../common/components/card";
+import { ButtonCustom } from "../../../common/components/button";
 
 import { shop } from "../../../assets/image";
 
 import styles from "./shop.module.scss";
+import Link from "@mui/material/Link";
 
 interface ShowCardProps {
   status: boolean;
@@ -61,7 +66,7 @@ const Shop = () => {
   const [showCard, setShowCard] = useState<ShowCardProps[]>([]);
   const [btnFilters, setTypeFilterFilters] = useState(LIST_BTN_FILTER);
 
-  const handleCheckbox = (index: any, type: any) => {
+  const handleCheckbox = (index: number, type: any) => {
     const newArr = [...type];
     newArr[index].status = !newArr[index].status;
     if (id === TYPE_FILTER[0].index) {
@@ -192,7 +197,7 @@ const Shop = () => {
     setColor(clearedColor);
   };
 
-  const buttonsCard = [
+  const buttonsFilter = [
     {
       label: "Apply",
       onClick: handleApply,
@@ -204,176 +209,232 @@ const Shop = () => {
     { label: "Close", onClick: handleClose },
   ];
 
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const category = queryParams.get("category");
+  const listRef = useRef(null);
+  const propsListRef = new CustomEvent("propsListRef", {
+    detail: { ref: listRef.current },
+  });
+  window.dispatchEvent(propsListRef);
+
   return (
-    <div
-      className={`${styles.shop}  flex flex-direction-column flex-align-center`}
-    >
-      <div className="widthScreen">
-        <Grid container spacing={4}>
-          <Grid
-            item
-            container
-            xs={12}
-            direction="column"
-            justifyContent="flex-start"
-            alignItems="flex-start"
-          >
-            <div
-              className={`${styles.filter} flex flex-direction-row flex-align-center `}
-            >
-              <span
-                style={{
-                  fontSize: "30px",
-                  fontFamily: "serif",
-                  letterSpacing: "3px",
-                }}
-              >
-                Filter by:
-              </span>
-              {btnFilters.map((item) => (
-                <button
-                  key={`${item.id}-${item.label}`}
-                  disabled={item.disable}
-                  className={`${styles.btnFilter} ${
-                    item.disable ? styles.btnFilterDisable : ""
-                  } font-m`}
-                  onClick={() => handleOpenFilterBy(item.id)}
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-            {showCard[id]?.status && (
-              <Paper
-                elevation={3}
-                className={`${styles.listFilter}  flex flex-justify-flex-start flex-direction-column`}
-              >
-                <div
-                  style={{ textAlign: "left", fontWeight: "600" }}
-                  className="font-l"
-                >
-                  {TYPE_FILTER[id].name}
-                </div>
-                <FormGroup>
-                  <Box
-                    display="flex"
-                    justifyContent="flex-start"
-                    columnGap={10}
+    <div ref={listRef}>
+      {category ? (
+        <div className={`${styles.shop}`} id="listProduct">
+          <div className="widthScreen margin-center">
+            <Grid container style={{ paddingBottom: "20px" }}>
+              {category && (
+                <Breadcrumbs aria-label="breadcrumb">
+                  <Link
+                    underline="hover"
+                    sx={{ display: "flex", alignItems: "center" }}
+                    color="inherit"
+                    href="/shop"
                   >
-                    {ArrCardFilter[id].type.map((item, index) => (
-                      <FormControlLabel
-                        key={index}
-                        label={item.name}
-                        labelPlacement="start"
-                        sx={{ marginLeft: "0px" }}
-                        control={
-                          <Checkbox
-                            checked={item.status}
-                            sx={{
-                              "& .MuiSvgIcon-root": { fontSize: 30 },
-                            }}
-                            onChange={() =>
-                              handleCheckbox(index, ArrCardFilter[id].type)
-                            }
-                          />
-                        }
-                      />
-                    ))}
-                  </Box>
-                </FormGroup>
+                    Shop
+                  </Link>
+                  <div style={{ textTransform: "capitalize" }}>{category}</div>
+                </Breadcrumbs>
+              )}
+            </Grid>
+            <Grid container>
+              <Grid
+                item
+                container
+                xs={12}
+                direction="column"
+                justifyContent="flex-start"
+                alignItems="flex-start"
+              >
                 <div
-                  className={`${styles.listBtnFilter} flex flex-justify-flex-start`}
+                  className={`${styles.filter} flex flex-direction-row flex-align-center `}
                 >
-                  {buttonsCard.map((button, index) => (
-                    <Button
-                      key={index}
-                      variant="contained"
-                      onClick={button.onClick}
-                      style={{ marginLeft: index > 0 ? 10 : 0 }}
-                      className={styles.btnCard}
+                  <span
+                    style={{
+                      fontSize: "30px",
+                      fontFamily: "serif",
+                      letterSpacing: "3px",
+                    }}
+                  >
+                    Filter by:
+                  </span>
+                  {btnFilters.map((item) => (
+                    <button
+                      key={`${item.id}-${item.label}`}
+                      disabled={item.disable}
+                      className={`${styles.btnFilter} ${
+                        item.disable ? styles.btnFilterDisable : ""
+                      } font-m`}
+                      onClick={() => handleOpenFilterBy(item.id)}
                     >
-                      {button.label}
-                    </Button>
+                      {item.label}
+                    </button>
                   ))}
                 </div>
-              </Paper>
-            )}
-            <div
-              style={{
-                marginTop: "15px",
-                gap: "5px",
-              }}
-              className="flex flex-direction-row "
-            >
-              {(arrSizeFilter.length > 0 || arrColorFilter.length > 0) && (
-                <Chip
-                  size="medium"
-                  sx={{
-                    background: "var(--color-blue-music)",
-                    color: "var(--color-white)",
-                    fontSize: "16px",
-                    height: "40px",
-                    width: "120px",
-                    "& .MuiChip-deleteIcon": {
-                      color: "white",
-                    },
+                {showCard[id]?.status && (
+                  <Paper
+                    elevation={3}
+                    className={`${styles.listFilter}  flex flex-justify-flex-start flex-direction-column`}
+                  >
+                    <div
+                      style={{ textAlign: "left", fontWeight: "600" }}
+                      className="font-l"
+                    >
+                      {TYPE_FILTER[id].name}
+                    </div>
+                    <FormGroup>
+                      <Box
+                        display="flex"
+                        justifyContent="flex-start"
+                        columnGap={10}
+                      >
+                        {ArrCardFilter[id].type.map((item, index) => (
+                          <FormControlLabel
+                            key={index}
+                            label={item.name}
+                            labelPlacement="start"
+                            sx={{ marginLeft: "0px" }}
+                            control={
+                              <Checkbox
+                                checked={item.status}
+                                sx={{
+                                  "& .MuiSvgIcon-root": { fontSize: 30 },
+                                }}
+                                onChange={() =>
+                                  handleCheckbox(index, ArrCardFilter[id].type)
+                                }
+                              />
+                            }
+                          />
+                        ))}
+                      </Box>
+                    </FormGroup>
+                    <div
+                      className={`${styles.listBtnFilter} flex flex-justify-flex-start`}
+                    >
+                      {buttonsFilter.map((button, index) => (
+                        <Button
+                          key={index}
+                          variant="contained"
+                          onClick={button.onClick}
+                          style={{ marginLeft: index > 0 ? 10 : 0 }}
+                          className={styles.btnCard}
+                        >
+                          {button.label}
+                        </Button>
+                      ))}
+                    </div>
+                  </Paper>
+                )}
+                <div
+                  style={{
+                    marginTop: "15px",
+                    gap: "5px",
                   }}
-                  label={"Clear all"}
-                  onDelete={handleClearAllFilter}
-                />
-              )}
-              {arrSizeFilter.map((item: TypeFilterProps, index) => (
-                <Chip
-                  key={index}
-                  size="medium"
-                  sx={{
-                    background: "var(--color-blue-music)",
-                    color: "var(--color-white)",
-                    fontSize: "16px",
-                    height: "40px",
-                    maxWidth: "100px",
-                    "& .MuiChip-deleteIcon": {
-                      color: "white",
-                    },
-                  }}
-                  label={item.name}
-                  onDelete={() => handleDeleteFilter(item)}
-                />
-              ))}
-              {arrColorFilter.map((item: TypeFilterProps, index) => (
-                <Chip
-                  key={index}
-                  size="medium"
-                  sx={{
-                    background: "var(--color-blue-music)",
-                    color: "var(--color-white)",
-                    fontSize: "16px",
-                    height: "40px",
-                    maxWidth: "100px",
-                    "& .MuiChip-deleteIcon": {
-                      color: "white",
-                    },
-                  }}
-                  label={item.name}
-                  onDelete={() => handleDeleteFilter(item)}
-                />
-              ))}
-            </div>
-          </Grid>
-          <Grid container item spacing={3} justifyContent={"space-between"}>
-            {Array.from(Array(8)).map((_, index) => (
+                  className="flex flex-direction-row "
+                >
+                  {(arrSizeFilter.length > 0 || arrColorFilter.length > 0) && (
+                    <Chip
+                      size="medium"
+                      sx={{
+                        background: "var(--color-blue-music)",
+                        color: "var(--color-white)",
+                        fontSize: "16px",
+                        height: "40px",
+                        width: "120px",
+                        "& .MuiChip-deleteIcon": {
+                          color: "white",
+                        },
+                      }}
+                      label={"Clear all"}
+                      onDelete={handleClearAllFilter}
+                    />
+                  )}
+                  {arrSizeFilter.map((item: TypeFilterProps, index) => (
+                    <Chip
+                      key={index}
+                      size="medium"
+                      sx={{
+                        background: "var(--color-blue-music)",
+                        color: "var(--color-white)",
+                        fontSize: "16px",
+                        height: "40px",
+                        maxWidth: "100px",
+                        "& .MuiChip-deleteIcon": {
+                          color: "white",
+                        },
+                      }}
+                      label={item.name}
+                      onDelete={() => handleDeleteFilter(item)}
+                    />
+                  ))}
+                  {arrColorFilter.map((item: TypeFilterProps, index) => (
+                    <Chip
+                      key={index}
+                      size="medium"
+                      sx={{
+                        background: "var(--color-blue-music)",
+                        color: "var(--color-white)",
+                        fontSize: "16px",
+                        height: "40px",
+                        maxWidth: "100px",
+                        "& .MuiChip-deleteIcon": {
+                          color: "white",
+                        },
+                      }}
+                      label={item.name}
+                      onDelete={() => handleDeleteFilter(item)}
+                    />
+                  ))}
+                </div>
+              </Grid>
+              {/* <Grid container item spacing={3} justifyContent={"space-between"}>
+            {Array.from(Array(7)).map((_, index) => (
               <Grid key={index} item>
                 <CardItem size={false} image={""} badge={false} />
               </Grid>
             ))}
-          </Grid>
-        </Grid>
-      </div>
+          </Grid> */}
+              <NoResults />
+            </Grid>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
+
+  //check điều kiện lấy type theo url để render ra UI tương ứng
 };
 
 const ContentShop = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = (category: string) => {
+    navigate(`/shop?category=${category}`);
+  };
+
+  const buttonCategories = [
+    { label: "Women", category: "women" },
+    { label: "Man", category: "man" },
+    { label: "Shoes", category: "shoes" },
+  ];
+
+  useEffect(() => {
+    const handleOnClickCategory = (value: any) => {
+      value.detail.ref?.scrollIntoView({
+        behavior: "smooth",
+      });
+    };
+    window.addEventListener("propsListRef", handleOnClickCategory);
+
+    return () => {
+      window.removeEventListener("propsListRef", handleOnClickCategory);
+    };
+  }, []);
+
   return (
     <div
       className={`${styles.contentShop} flex flex-direction-column flex-justify-center flex-align-center`}
@@ -394,6 +455,21 @@ const ContentShop = () => {
         >
           Shop
         </span>
+        <div className="flex flex-justify-space-between">
+          {buttonCategories.map((item) => (
+            <ButtonCustom
+              key={item.category}
+              variant="outlined"
+              text={item.label}
+              style={{
+                padding: "20px 40px",
+                borderColor: "var(--color-white)",
+                color: "var(--color-white)",
+              }}
+              onClick={() => handleNavigate(item.category)}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

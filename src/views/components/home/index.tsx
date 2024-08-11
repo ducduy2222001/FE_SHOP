@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid } from "@mui/material";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import { withLayout } from "../../../layout";
 import CardItem from "../../../common/components/card";
 import ListServiceOfShop from "../../../common/components/listServiceOfShop";
-
+import { ButtonCustom } from "../../../common/components/button";
 import { shoes2, modelWomen, modelMen, home } from "../../../assets/image";
 
 import styles from "./home.module.scss";
-import { ButtonCustom } from "../../../common/components/button";
 
 const DATA_CARDITEM = [
   {
@@ -64,24 +65,17 @@ const DATA_CARDITEMSALE = [
 ];
 
 const Home = () => {
-  // const navigation = useNavigate();
-  // React.useEffect(() => {
-  //   getUser().catch((err) => {
-  //     if (err.response.status === 401) {
-  //       navigation("/login");
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    Aos.init({ debounceDelay: 1000, duration: 1000 });
+  }, []);
+
   return (
     <div
       className={`${styles.home} flex flex-direction-column flex-align-center`}
     >
       <ListCard data={DATA_CARDITEM} sale={false} />
-      <Collection gender={false} />
-      <div
-        className={`${styles.containD} flex flex-direction-column flex-align-flex-start`}
-      ></div>
-      <Collection gender={true} />
+      <Collection gender={false} animation={"fade-right"} />
+      <Collection gender={true} animation={"fade-left"} />
       <ListCard data={DATA_CARDITEMSALE} sale={true} />
       <div
         className={`${styles.containB} flex flex-direction-column flex-align-center flex-justify-center`}
@@ -89,6 +83,7 @@ const Home = () => {
         <div
           className="flex flex-direction-column flex-align-flex-end "
           style={{ gap: "20px", margin: "100px 0" }}
+          data-aos="fade-up"
         >
           <img
             src={shoes2}
@@ -192,7 +187,7 @@ export default withLayout(Home, headerProps);
 const ListCard = (props: any) => {
   const { data, sale } = props;
   return (
-    <div className={`${styles.containA} widthScreen`}>
+    <div className={`${styles.containA} widthScreen`} data-aos="fade-up">
       <Grid container gap={7}>
         <Grid item justifyContent="space-between" md={12}>
           <div
@@ -252,13 +247,15 @@ const ListCard = (props: any) => {
   );
 };
 
-const Collection = (props: { gender: boolean }) => {
-  const { gender } = props;
+const Collection = (props: any) => {
+  const { gender, animation } = props;
   return (
     <div
       className={`${styles.containC} ${
         gender ? styles.man : styles.women
       } widthScreen flex flex-align-center`}
+      data-aos={animation}
+      style={{ overflow: "auto" }}
     >
       <div
         className="flex flex-direction-row flex-align-center flex-justify-center"
@@ -307,6 +304,7 @@ const Collection = (props: { gender: boolean }) => {
                 right: "57px",
               }
         }
+        data-aos={animation}
       >
         <span className="font-l" style={{ fontWeight: "500" }}>
           {gender ? "Men" : "Women"}

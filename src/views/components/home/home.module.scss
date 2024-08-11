@@ -1,6 +1,7 @@
 .home {
   padding-top: 80px;
   gap: 80px;
+  overflow: hidden;
 
   .title {
     font-size: 40px;
@@ -51,10 +52,6 @@
 
   .man {
     flex-direction: row-reverse;
-  }
-
-  .containD {
-    z-index: 0;
   }
 }
 
