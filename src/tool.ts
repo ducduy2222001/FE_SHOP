@@ -7,5 +7,6 @@ export const routerPaths = {
   cart: "/cart",
   checkout: "/checkout",
   login: "/login",
+  productDetail: "/product-detail",
   errorPage: "*",
 };

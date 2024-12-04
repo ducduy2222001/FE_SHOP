@@ -73,10 +73,10 @@ const Home = () => {
     <div
       className={`${styles.home} flex flex-direction-column flex-align-center`}
     >
-      <ListCard data={DATA_CARDITEM} sale={false} />
+      {/* <ListCard data={DATA_CARDITEM} sale={false} /> */}
       <Collection gender={false} animation={"fade-right"} />
       <Collection gender={true} animation={"fade-left"} />
-      <ListCard data={DATA_CARDITEMSALE} sale={true} />
+      {/* <ListCard data={DATA_CARDITEMSALE} sale={true} /> */}
       <div
         className={`${styles.containB} flex flex-direction-column flex-align-center flex-justify-center`}
       >
@@ -88,6 +88,7 @@ const Home = () => {
           <img
             src={shoes2}
             alt=""
+            loading="lazy"
             style={{
               width: "450px",
               height: "auto",
@@ -275,6 +276,7 @@ const Collection = (props: any) => {
         <img
           src={gender ? modelMen : modelWomen}
           alt=""
+          loading="lazy"
           style={{
             width: "500px",
             height: "624px",
